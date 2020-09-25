@@ -1,0 +1,35 @@
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">MAIN NAVIGATION</li>
+
+      <li class="treeview" *ngFor="let rootItem of rootMenu" >
+        <a href="#">
+          <i class="{{rootItem.classImage}}"></i> <span>{{rootItem.label}}</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="treeview" *ngFor="let itemMenu of rootItem.menuItems" >
+            <a href="#"><i class="{{itemMenu.classImage}}"></i> {{itemMenu.label}}
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+                <li *ngFor="let item of itemMenu.menuItems" >
+                  <a routerLinkActive="active" [routerLink]='[item.actionRouter]'>
+                    <i class="{{item.classImage}}"></i> {{item.label}}
+                  </a>
+                </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>
