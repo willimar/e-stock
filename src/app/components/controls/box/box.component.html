@@ -1,0 +1,20 @@
+<div [class]="GetBoxClass()">
+  <div class="box-header with-border">
+    <h3 class="box-title">{{boxTitle}}</h3>
+
+    <div class="box-tools pull-right">
+      <button *ngIf="useMinimize"  type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+    </div>
+    <div class="box-tools pull-right" *ngIf="topLabel" >
+        <label class="label label-primary"><b>Type: </b>{{topLabel}}</label>
+    </div>
+  </div>
+  <div class="box-body" style="margin-left:10px;margin-right:10px;">
+      <div class="row">
+          <ng-content name="boxBody"></ng-content>
+      </div>
+  </div>
+  <div class="box-footer">
+
+  </div>
+</div>

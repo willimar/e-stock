@@ -1,0 +1,16 @@
+<section styles="border=1px">
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#findItem" data-toggle="tab">Find Item</a></li>
+          <li><a href="#detailData" data-toggle="tab" (click)="detailOpenEvent($event)">Detail</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="findItem">
+              <app-grid-control [columnDefs]="columns" [viewName]="viewName" (selectionChanged)="onSelectionChanged($event)"></app-grid-control>
+          </div>
+          <div class="tab-pane" id="detailData">
+                <ng-content></ng-content>
+          </div>
+        </div>
+      </div>
+</section>

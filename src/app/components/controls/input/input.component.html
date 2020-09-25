@@ -1,0 +1,11 @@
+<div class="form-group" [class.has-success]="hasSuccess()"
+                        [class.has-error]="hasError()">
+  <label>
+      <span>
+        <i class="fa fa-check" *ngIf="hasSuccess()"> {{caption}} </i>
+        <i class="fa fa-remove" *ngIf="hasError()"> {{caption}} </i>
+        <i class="fa" *ngIf="!hasSuccess() && !hasError()"> {{caption}} </i>
+      </span>
+  </label>
+  <ng-content></ng-content>
+</div>

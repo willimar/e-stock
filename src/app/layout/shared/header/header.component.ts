@@ -11,10 +11,10 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   userName: UserInfo = { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar'  };
-  prefix = 'MC-Host';
-  sufix = 'Base';
-  prefixMin = 'MC';
-  sufixMin = 'Host';
+  prefix = 'e';
+  sufix = 'Stock';
+  prefixMin = 'e';
+  sufixMin = 'S';
   messages: Message[] =
   [
     {

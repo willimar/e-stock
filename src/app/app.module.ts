@@ -1,3 +1,5 @@
+import { Person } from './models/registers/person';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -13,6 +15,17 @@ import { PersonComponent } from './layout/register/person/person.component';
 import { AboutComponent } from './layout/help/about/about.component';
 import { UserComponent } from './layout/register/user/user.component';
 import { LoginComponent } from './layout/login/login.component';
+import { BoxComponent } from './components/controls/box/box.component';
+import { BoxErrorComponent } from './components/controls/box-error/box-error.component';
+import { ButtonComponent } from './components/controls/button/button.component';
+import { GridControlComponent } from './components/controls/grid-control/grid-control.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { InputComponent } from './components/controls/input/input.component';
+import { InputCheckComponent } from './components/controls/input-check/input-check.component';
+import { InputDateComponent } from './components/controls/input-date/input-date.component';
+import { StandardFormComponent } from './components/controls/standard-form/standard-form.component';
+import { NgSelect2Module } from 'ng-select2';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,13 +39,25 @@ import { LoginComponent } from './layout/login/login.component';
     PersonComponent,
     AboutComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    BoxComponent,
+    BoxErrorComponent,
+    ButtonComponent,
+    GridControlComponent,
+    InputComponent,
+    InputCheckComponent,
+    InputDateComponent,
+    StandardFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgSelect2Module,
+    AppRoutingModule,
+    AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [FormBuilder, Person],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

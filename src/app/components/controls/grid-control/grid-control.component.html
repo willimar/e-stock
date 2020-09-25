@@ -1,0 +1,15 @@
+<ag-grid-angular
+    #agGrid
+    id="agGrid"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [enableSorting]="true"
+    [enableFilter]="true"
+    rowSelection="single"
+    pagination = true
+    paginationAutoPageSize = true
+    (selectionChanged)="onSelectionChanged($event)"
+    >
+
+</ag-grid-angular>
