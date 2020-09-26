@@ -1,3 +1,4 @@
+import { UserInfoComponent } from './layout/shared/person/user-info/user-info.component';
 import { Person } from './models/registers/person';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,6 +27,8 @@ import { InputDateComponent } from './components/controls/input-date/input-date.
 import { StandardFormComponent } from './components/controls/standard-form/standard-form.component';
 import { NgSelect2Module } from 'ng-select2';
 import { HttpClientModule } from '@angular/common/http';
+import { InputBaseComponent } from './components/controls/input-base/input-base.component';
+import { PersonInfoComponent } from './layout/shared/person/person-info/person-info.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { HttpClientModule } from '@angular/common/http';
     InputComponent,
     InputCheckComponent,
     InputDateComponent,
-    StandardFormComponent
+    StandardFormComponent,
+    InputBaseComponent,
+    PersonInfoComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

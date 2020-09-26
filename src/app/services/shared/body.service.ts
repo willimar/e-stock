@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
 })
 export class BodyService {
 
-  public queryInfo: IQueryInfo = null;
+  public queryInfo: IQueryInfo = { limit: 0, page: 0 };
   public arguments: ArgumentService[] = [];
   public resultFields: string[] = [];
 

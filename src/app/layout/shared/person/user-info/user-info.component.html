@@ -1,0 +1,40 @@
+<form role="form" [formGroup]="formGroupRules">
+  <div class="row">
+    <div class="col-sm-3">
+      <app-input
+            [caption]="'User name'"
+            [name]="'userName'"
+            [required]="true"
+            [errorMessage]="'Login is required with min 10 caracters.'">
+            <input type="text" class="form-control" placeholder="Input your name..." formControlName="userName" autocomplete="off" [value]="personService.person.userInfo.userName" (change)="savePerson(formGroupRules.value)">
+      </app-input>
+    </div>
+    <div class="col-sm-3">
+      <app-input
+            [caption]="'E-Mail'"
+            [name]="'userEmail'"
+            [required]="true"
+            [errorMessage]="'User E-mail is required.'">
+            <input type="text" class="form-control" placeholder="Input your name..." formControlName="userEmail" autocomplete="off" [value]="personService.person.userInfo.userEmail" (change)="savePerson(formGroupRules.value)">
+      </app-input>
+    </div>
+    <div class="col-sm-3">
+      <app-input
+            [caption]="'Password'"
+            [name]="'userPassword'"
+            [required]="true"
+            [errorMessage]="'Password is required with min 10 caracters between caracteres and numbers.'">
+            <input type="password" class="form-control" placeholder="Input your name..." formControlName="userPassword" autocomplete="off" (change)="savePerson(formGroupRules.value)">
+      </app-input>
+    </div>
+    <div class="col-sm-3">
+      <app-input
+            [caption]="'Repeat password'"
+            [name]="'userPasswordAux'"
+            [required]="true"
+            [errorMessage]="'Password check is diferente of the original password.'">
+            <input type="password" class="form-control" placeholder="Input your name..." formControlName="userPasswordAux" autocomplete="off" (change)="savePerson(formGroupRules.value)">
+      </app-input>
+    </div>
+  </div>
+</form>

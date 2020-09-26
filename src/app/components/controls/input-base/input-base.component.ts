@@ -1,10 +1,12 @@
 import { NgModel, FormControlName } from '@angular/forms';
-import { OnInit, Input, ContentChild, AfterContentInit, Injectable } from '@angular/core';
+import { Component, OnInit, AfterContentInit, Input, ContentChild } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-input-base',
+  templateUrl: './input-base.component.html',
+  styleUrls: []
 })
-export class InputBase implements OnInit, AfterContentInit {
+export class InputBaseComponent implements OnInit, AfterContentInit {
 
   @Input() public caption: string;
   @Input() public errorMessage: string;

@@ -2,7 +2,7 @@ import { FormBase } from './../../components/controls/form-base';
 import { Router } from '@angular/router';
 import { AccountService } from './../../services/shared/account.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -16,23 +16,19 @@ export class LoginComponent extends FormBase implements OnInit {
     password: ''
   };
 
-  constructor(private accountService: AccountService, private router: Router) {
+  constructor(private accountService: AccountService, private router: Router, public formBuilder: FormBuilder) {
     super();
+    this.service = this.accountService;
   }
 
   ngOnInit(): void {
+    this.formGroupRules = this.formBuilder.group({
+      userName: this.formBuilder.control('', [Validators.required]),
+      userPassword: this.formBuilder.control('', [Validators.required])
+    }, {validator: null});
   }
 
-  getErrors(): any[] {
-    const result: any[] = [];
-    this.accountService.errorMessages.forEach(item => {
-      result.push(item);
-    });
-
-    return result;
-  }
-
-  async onSubmit(): Promise<any> {
+  async onSubmit(form: any): Promise<any> {
     try {
       const result = await this.accountService.login(this.login);
       console.log(`Login efetuado: ${result}`);

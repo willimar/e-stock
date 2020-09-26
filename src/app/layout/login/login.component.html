@@ -1,1 +1,62 @@
-<h1>porra</h1>
+<section styles="border=1px">
+  <app-box-error *ngFor="let item of getErrors()" [showCloseButton]=false [boxTitle]="item.boxTitle" [boxText]="item.boxText"></app-box-error>
+  <div class = "row">&nbsp;</div>
+  <div class = "row">&nbsp;</div>
+  <div class = "row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <app-box [boxTitle]="'Login'">
+        <form role="form" [formGroup]="formGroupRules">
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+            <app-input
+              [caption]="'Login'"
+              [name]="'userName'"
+              [required]="true"
+              [errorMessage]="'Login field is required.'">
+              <input type="text" class="form-control" placeholder="User name or e-mail..." formControlName="userName" autocomplete="off">
+            </app-input>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+            <app-input
+              [caption]="'Password'"
+              [name]="'userPassword'"
+              [required]="true"
+              [errorMessage]="'Login field is required.'">
+              <input type="password" class="form-control" placeholder="User password..." formControlName="userPassword" autocomplete="off">
+            </app-input>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+              <button class="btn btn-primary" style="width: 100%;" (click)="onSubmit($event)">Login</button>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10" style="text-align:center;">
+              <a href="#">Forgot your password?</a>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10" style="text-align:center;">
+              <a href="create-account">Create an account.</a>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+        </form>
+      </app-box>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</section>

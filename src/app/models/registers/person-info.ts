@@ -10,4 +10,14 @@ export class PersonInfo extends BaseModel {
   public maritalStatus: string;
   public specialNeeds = false;
   public profession: string;
+
+  public getLastName(): string {
+    const names = this.name.split(' ');
+    return names[names.length - 1];
+  }
+
+  public getFirstName(): string {
+    const names = this.name.split(' ');
+    return names[0];
+  }
 }

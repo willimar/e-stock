@@ -16,6 +16,7 @@ export class GraphClientService {
 
     public resolve(uri: string): void {
         const bodyValue: string = this.body.join(',');
+
         const body = `{"operationName":null,"variables":{},"query":"{${bodyValue}}"}`;
         this.submitPerson(body, uri);
     }

@@ -1,5 +1,6 @@
 <div class="form-group" [class.has-success]="hasSuccess()"
-                        [class.has-error]="hasError()">
+                        [class.has-error]="hasError()"
+                        style="{{style}}">
   <label>
       <span>
         <i class="fa fa-check" *ngIf="hasSuccess()"> {{caption}} </i>

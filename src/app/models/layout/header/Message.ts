@@ -1,10 +1,10 @@
-import { UserInfo } from './../login/UserInfo';
+import { PersonInfo } from './../../registers/person-info';
 
 export interface Message {
     subject: string;
     message: string;
-    from: UserInfo;
-    to: UserInfo;
+    from: PersonInfo;
+    to: PersonInfo;
     sent: Date;
     ico: string;
 }

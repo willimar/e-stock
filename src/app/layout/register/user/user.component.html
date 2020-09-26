@@ -1,1 +1,15 @@
-<p>user works!</p>
+<section styles="border=1px">
+  <app-box-error *ngFor="let item of getErrors()" [showCloseButton]=false [boxTitle]="item.boxTitle" [boxText]="item.boxText"></app-box-error>
+  <form role="form" [formGroup]="formGroupRules">
+    <app-box
+      [boxTitle]="'Personal Information'"
+      [useMinimize]="true">
+      <app-person-info [personService]="personService"></app-person-info>
+    </app-box>
+    <app-box
+      [boxTitle]="'User Information'"
+      [useMinimize]="true">
+      <app-user-info [personService]="personService"></app-user-info>
+    </app-box>
+  </form>
+</section>

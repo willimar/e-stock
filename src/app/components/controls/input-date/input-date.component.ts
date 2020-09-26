@@ -1,4 +1,4 @@
-import { InputBase } from './../input-base';
+import { InputBaseComponent } from './../input-base/input-base.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './input-date.component.html',
   styleUrls: []
 })
-export class InputDateComponent extends InputBase implements OnInit {
+export class InputDateComponent extends InputBaseComponent implements OnInit {
 
   constructor() {
     super();

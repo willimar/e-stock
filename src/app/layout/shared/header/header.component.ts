@@ -1,6 +1,7 @@
+import { PersonInfo } from './../../../models/registers/person-info';
+import { Person } from './../../../models/registers/person';
 import { Notification } from './../../../models/layout/header/Notification';
 import { Message } from './../../../models/layout/header/Message';
-import { UserInfo } from './../../../models/layout/login/UserInfo';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  userName: UserInfo = { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar'  };
+  userName: PersonInfo = new PersonInfo();
   prefix = 'e';
   sufix = 'Stock';
   prefixMin = 'e';
@@ -20,41 +21,41 @@ export class HeaderComponent implements OnInit {
     {
       message: 'Why not buy a new awesome theme?',
       subject: 'Support Team',
-      from: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      from: new PersonInfo(),
       sent: new Date(2018, 10, 15),
-      to: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      to: new PersonInfo(),
       ico: 'fa fa-users text-aqua'
     },
     {
       message: 'Why not buy a new awesome theme?',
       subject: 'Admin support request',
-      from: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      from: new PersonInfo(),
       sent: new Date(2018, 10, 15),
-      to: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      to: new PersonInfo(),
       ico: 'fa fa-users text-aqua'
     },
     {
       message: 'Why not buy a new awesome theme?',
       subject: 'Ask me about',
-      from: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      from: new PersonInfo(),
       sent: new Date(2018, 10, 15),
-      to: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      to: new PersonInfo(),
       ico: 'fa fa-users text-aqua'
     },
     {
       message: 'Why not buy a new awesome theme?',
       subject: 'System help',
-      from: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      from: new PersonInfo(),
       sent: new Date(2018, 10, 15),
-      to: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      to: new PersonInfo(),
       ico: 'fa fa-users text-aqua'
     },
     {
       message: 'Why not buy a new awesome theme?',
       subject: 'System options use',
-      from: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      from: new PersonInfo(),
       sent: new Date(2018, 10, 15),
-      to: { id: 'teste', firstName: 'Willimar', lastName: 'Rocha', nickName: 'Willimar' },
+      to: new PersonInfo(),
       ico: 'fa fa-users text-aqua'
     }
   ];
@@ -82,7 +83,9 @@ export class HeaderComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor() {
+    this.userName.name = 'Willimar Augusto Rocha';
+  }
 
   ngOnInit(): void {
   }

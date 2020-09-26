@@ -1,3 +1,4 @@
+import { BaseService } from './../../services/shared/base.service';
 import { IColumnDef } from './../interfaces/icolumn-def';
 import { Status } from './../../models/enums/status.enum';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -13,6 +14,11 @@ export class FormBase {
   public static telephoneFormat = /^\+[1-9]{1}[0-9]{3,14}$/;
   public static brazilianPostalCode = /^[0-9]{5}(?:-[0-9]{4})?-[0-9]{3}$/;
   public static postalCodeFormat = /^([0-9]{5}-[0-9]{3})|([0-9]{5})|([0-9]{4}-[0-9]{4})|([a-zA-Z]{1}[0-9]{1}[a-zA-Z]{1} [0-9]{1}[a-zA-Z]{1}[0-9]{1})/;
+
+  protected service: BaseService = null;
+  public formGroupRules: FormGroup;
+  public formBuilder: FormBuilder;
+  private status = Status;
 
   public columnDef: IColumnDef[] =  [
   {
@@ -40,7 +46,12 @@ export class FormBase {
     hide: false
   }];
 
-  public formGroupRules: FormGroup;
-  public formBuilder: FormBuilder;
-  private status = Status;
+  getErrors(): any[] {
+    const result: any[] = [];
+    this.service.errorMessages.forEach(item => {
+      result.push(item);
+    });
+
+    return result;
+  }
 }
