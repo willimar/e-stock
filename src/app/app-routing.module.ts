@@ -26,7 +26,8 @@ const routes: Routes =
     component: AuthenticationComponent,
     children:
     [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      // { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: '', component: AuthenticationComponent },
       { path: 'login', component: LoginComponent },
       { path: 'account', component: UserComponent },
       { path: 'about', component: AboutComponent }
