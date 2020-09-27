@@ -56,4 +56,8 @@ export class FormBaseComponent<TEntity> {
 
     return result;
   }
+
+  public submit(form: any) {
+    this.service.save(this.service.entity);
+  }
 }
