@@ -1,20 +1,21 @@
 import { FormBuilder } from '@angular/forms';
-import { PersonService } from './../../../services/register/person.service';
-import { FormBase } from './../../../components/controls/form-base';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Person } from '../../../models/registers/person';
+import { PersonService } from '../../../services/register/person.service';
+import { FormBaseComponent } from '../../../components/controls/form-base.component';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: []
 })
-export class UserComponent extends FormBase implements OnInit {
+export class UserComponent extends FormBaseComponent<Person> implements OnInit {
 
-  constructor(formBuilder: FormBuilder, public personService: PersonService) {
+  constructor(formBuilder: FormBuilder, public service: PersonService) {
     super();
 
-    this.service = this.personService;
     this.formBuilder = formBuilder;
+
   }
 
   ngOnInit(): void {

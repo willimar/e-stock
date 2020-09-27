@@ -6,7 +6,7 @@
             [name]="'name'"
             [required]="true"
             [errorMessage]="'Name is required with min 10 caracters.'">
-            <input type="text" class="form-control" placeholder="Input your name..." formControlName="name" autocomplete="off" [value]="personService.person.personInfo.name" (change)="savePerson(formGroupRules.value)">
+            <input type="text" class="form-control" placeholder="Input your name..." formControlName="name" autocomplete="off" [value]="service.entity.personInfo.name" (change)="savePerson(formGroupRules.value)">
       </app-input>
     </div>
     <div class="col-sm-3">
@@ -14,7 +14,7 @@
                   [caption]="'Birth'"
                   [name]="'birthDay'"
                   [required]="true">
-                  <input type="date" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" formControlName="birthDay" data-mask="" [value]="personService.person.personInfo.birthDay" (change)="savePerson(formGroupRules.value)">
+                  <input type="date" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" formControlName="birthDay" data-mask="" [value]="service.entity.personInfo.birthDay" (change)="savePerson(formGroupRules.value)">
         </app-input-date>
     </div>
     <div class="col-sm-3">
@@ -23,7 +23,7 @@
                   [name]="'nickName'"
                   [required]="false"
                   [errorMessage]="'Your nick name.'">
-                  <input type="text" class="form-control" placeholder="Your nick name..." formControlName="nickName" autocomplete="off" [value]="personService.person.personInfo.nickName" (change)="savePerson(formGroupRules.value)">
+                  <input type="text" class="form-control" placeholder="Your nick name..." formControlName="nickName" autocomplete="off" [value]="service.entity.personInfo.nickName" (change)="savePerson(formGroupRules.value)">
         </app-input>
     </div>
   </div>
@@ -34,7 +34,7 @@
                 [name]="'state'"
                 [required]="false"
                 [style]="''"> <br/>
-                <ng-select2 [width] = "250" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getStates()" [value]="getState()" [formControlName]="'birthState'" [placeholder]="'Select a state...'" [value]="personService.person.personInfo.birthState"  (valueChanged)="setBirthState($event)"> </ng-select2>
+                <ng-select2 [width] = "250" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getStates()" [value]="getState()" [formControlName]="'birthState'" [placeholder]="'Select a state...'" [value]="service.entity.personInfo.birthState"  (valueChanged)="setBirthState($event)"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-3">
@@ -42,7 +42,7 @@
                 [caption]="'Birth city'"
                 [name]="'birthCity'"
                 [required]="false"> <br/>
-                <ng-select2 [width] = "250" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getCities()" [value]="getCity()" [formControlName]="'birthCity'" [placeholder]="'Select a city...'" [value]="personService.person.personInfo.birthCity" (valueChanged)="setBirthCity($event)"> </ng-select2>
+                <ng-select2 [width] = "250" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getCities()" [value]="getCity()" [formControlName]="'birthCity'" [placeholder]="'Select a city...'" [value]="service.entity.personInfo.birthCity" (valueChanged)="setBirthCity($event)"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-2">
@@ -50,7 +50,7 @@
                 [caption]="'Gender'"
                 [name]="'gender'"
                 [required]="true">
-                <select class="form-control" formControlName="gender" [value]="personService.person.personInfo.gender" (change)="savePerson(formGroupRules.value)">
+                <select class="form-control" formControlName="gender" [value]="service.entity.personInfo.gender" (change)="savePerson(formGroupRules.value)">
                     <option value="" selected>(Select)</option>
                     <option value="1">Female</option>
                     <option value="0">Male</option>
@@ -62,7 +62,7 @@
                 [caption]="'Marital status'"
                 [name]="'maritalStatus'"
                 [required]="true">
-                <select class="form-control" formControlName="maritalStatus" [value]="personService.person.personInfo.maritalStatus" (change)="savePerson(formGroupRules.value)">
+                <select class="form-control" formControlName="maritalStatus" [value]="service.entity.personInfo.maritalStatus" (change)="savePerson(formGroupRules.value)">
                     <option value="" selected>(Select)</option>
                     <option value="0">Married</option>
                     <option value="1">Single</option>
@@ -75,7 +75,7 @@
                 [caption]="'Special needs'"
                 [name]="'specialNeeds'"
                 [required]="false">
-                <input type="checkbox" formControlName="specialNeeds"  [value]="personService.person.personInfo.specialNeeds" (change)="savePerson(formGroupRules.value)">
+                <input type="checkbox" formControlName="specialNeeds"  [value]="service.entity.personInfo.specialNeeds" (change)="savePerson(formGroupRules.value)">
         </app-input-check>
     </div>
   </div>

@@ -4,21 +4,19 @@ import { SettingComponent } from './../../setting/setting.component';
 import { Order } from './../../../../services/enums/order.enum';
 import { GraphClientService } from './../../../../services/shared/graph-client.service';
 import { PersonInfo } from './../../../../models/registers/person-info';
-import { FormBase } from './../../../../components/controls/form-base';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
-import { PersonService } from './../../../../services/register/person.service';
 import { ISelect } from './../../../../services/interfaces/select';
 import { Component, OnInit, Input } from '@angular/core';
+import { Person } from '../../../../models/registers/person';
+import { FormBaseComponent } from '../../../../components/controls/form-base.component';
 
 @Component({
   selector: 'app-person-info',
   templateUrl: './person-info.component.html',
   styleUrls: []
 })
-export class PersonInfoComponent extends FormBase implements OnInit {
-
-  @Input() personService: PersonService;
+export class PersonInfoComponent extends FormBaseComponent<Person> implements OnInit {
 
   cities: ISelect[] = [];
   states: ISelect[] = [];
@@ -43,26 +41,26 @@ export class PersonInfoComponent extends FormBase implements OnInit {
   }
 
   savePerson(form: PersonInfo): void {
-    this.personService.person.personInfo.name = form.name;
-    this.personService.person.personInfo.birthDay = form.birthDay;
-    this.personService.person.personInfo.gender = form.gender;
-    this.personService.person.personInfo.nickName = form.nickName;
-    this.personService.person.personInfo.specialNeeds = typeof(form.specialNeeds) !== 'boolean' ? false : form.specialNeeds;
-    this.personService.person.personInfo.maritalStatus = form.maritalStatus;
+    this.service.entity.personInfo.name = form.name;
+    this.service.entity.personInfo.birthDay = form.birthDay;
+    this.service.entity.personInfo.gender = form.gender;
+    this.service.entity.personInfo.nickName = form.nickName;
+    this.service.entity.personInfo.specialNeeds = typeof(form.specialNeeds) !== 'boolean' ? false : form.specialNeeds;
+    this.service.entity.personInfo.maritalStatus = form.maritalStatus;
   }
 
   setBirthCity(value: any): void {
-    this.personService.person.personInfo.birthCity = value;
+    this.service.entity.personInfo.birthCity = value;
   }
 
   setBirthState(value: any): void {
-    this.personService.person.personInfo.birthState = value;
+    this.service.entity.personInfo.birthState = value;
     this.cities = [];
     this.loadCities(value);
   }
 
   getState(): string {
-    return this.personService.person.personInfo.birthState;
+    return this.service.entity.personInfo.birthState;
   }
 
   getStates(): any[] {
@@ -76,7 +74,7 @@ export class PersonInfoComponent extends FormBase implements OnInit {
   }
 
   getCity(): string {
-    return this.personService.person.personInfo.birthCity;
+    return this.service.entity.personInfo.birthCity;
   }
 
   getCities(): any[] {

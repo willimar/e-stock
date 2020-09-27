@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AccountService extends BaseService {
+export class AccountService extends BaseService<Person> {
 
-  constructor(private http: HttpClient, public person: Person) {
+  constructor(protected http: HttpClient, public entity: Person) {
     super();
   }
 

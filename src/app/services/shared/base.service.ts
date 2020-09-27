@@ -2,13 +2,53 @@ import { Guid } from './../../models/shared/guid';
 import { Status } from './../../models/enums/status.enum';
 import { BaseModel } from './../../models/shared/base-model';
 import { Injectable } from '@angular/core';
+import { SettingComponent } from '../../layout/shared/setting/setting.component';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HandleCode } from '../enums/handle-code.enum';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BaseService {
+export class BaseService<TEntity> {
 
   public errorMessages: any[] = [];
+  public messages: any[] = [];
+  public formGroup: FormGroup;
+  public entity: TEntity;
+
+  protected http: HttpClient;
+
+  protected exceptionResolve(e: any): void {
+    const message = {
+      boxTitle: `Message type ${e.name}`,
+      boxText: `Code: ${e.status} with message: ${e.message}`,
+      isError: false
+    };
+
+    this.errorMessages.push(message);
+  }
+
+  protected responseResolve(value: any[]): void {
+    const result: any[] = [];
+
+    value.forEach(item => {
+      const code: number = item.code;
+      const message = {
+        boxTitle: `Message type ${item.messageTipe}`,
+        boxText: `Code: ${code} with message: ${item.message}`,
+        isError: false
+      };
+
+      if ((code === HandleCode.Accepted) || (code === HandleCode.Ok)) {
+        message.isError = false;
+        this.messages.push(message);
+      } else {
+        message.isError = true;
+        this.errorMessages.push(message);
+      }
+    });
+  }
 
   protected getCollectionIndex(collection: BaseModel[], id: Guid): number {
       let idx = -1;
@@ -54,5 +94,30 @@ export class BaseService {
       });
 
       return result;
+  }
+
+  public submit(value: TEntity): any {
+    const header = new Headers();
+    header.append('Content-Type', 'application/json');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    return this.http.post(`${SettingComponent.crudApiUrl}/api/Person/Person`,
+        JSON.stringify(value),
+        httpOptions);
+  }
+
+  public save(value: TEntity): void {
+    this.errorMessages = [];
+    this.messages = [];
+
+    this.submit(value)
+      .subscribe(
+        (data: any[]) => this.responseResolve(data),
+        (error: any) => this.exceptionResolve(error));
   }
 }

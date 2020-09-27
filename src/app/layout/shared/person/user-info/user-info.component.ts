@@ -1,16 +1,17 @@
 import { UserInfo } from './../../../../models/registers/user-info';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
-import { FormBase } from './../../../../components/controls/form-base';
 import { PersonService } from './../../../../services/register/person.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { Person } from '../../../../models/registers/person';
+import { FormBaseComponent } from '../../../../components/controls/form-base.component';
 
 @Component({
   selector: 'app-user-info',
   templateUrl: './user-info.component.html',
   styleUrls: []
 })
-export class UserInfoComponent extends FormBase implements OnInit {
+export class UserInfoComponent extends FormBaseComponent<Person> implements OnInit {
 
   @Input() personService: PersonService;
 

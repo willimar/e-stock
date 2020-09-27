@@ -6,7 +6,7 @@
             [name]="'userName'"
             [required]="true"
             [errorMessage]="'Login is required with min 10 caracters.'">
-            <input type="text" class="form-control" placeholder="Input your name..." formControlName="userName" autocomplete="off" [value]="personService.person.userInfo.userName" (change)="savePerson(formGroupRules.value)">
+            <input type="text" class="form-control" placeholder="Input your name..." formControlName="userName" autocomplete="off" [value]="service.entity.userInfo.userName" (change)="savePerson(formGroupRules.value)">
       </app-input>
     </div>
     <div class="col-sm-3">
@@ -15,7 +15,7 @@
             [name]="'userEmail'"
             [required]="true"
             [errorMessage]="'User E-mail is required.'">
-            <input type="text" class="form-control" placeholder="Input your name..." formControlName="userEmail" autocomplete="off" [value]="personService.person.userInfo.userEmail" (change)="savePerson(formGroupRules.value)">
+            <input type="text" class="form-control" placeholder="Input your name..." formControlName="userEmail" autocomplete="off" [value]="service.entity.userInfo.userEmail" (change)="savePerson(formGroupRules.value)">
       </app-input>
     </div>
     <div class="col-sm-3">

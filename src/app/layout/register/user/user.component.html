@@ -4,12 +4,19 @@
     <app-box
       [boxTitle]="'Personal Information'"
       [useMinimize]="true">
-      <app-person-info [personService]="personService"></app-person-info>
+      <app-person-info [service]="service"></app-person-info>
     </app-box>
     <app-box
       [boxTitle]="'User Information'"
       [useMinimize]="true">
-      <app-user-info [personService]="personService"></app-user-info>
+      <app-user-info [service]="service"></app-user-info>
     </app-box>
+    <div class="row">
+      <div class="col-sm-10"></div>
+      <div class="col-sm-1">
+        <button class="btn btn-primary" style="width: 120px;">Save</button>
+      </div>
+    </div>
+
   </form>
 </section>
