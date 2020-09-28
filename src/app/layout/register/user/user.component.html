@@ -1,5 +1,6 @@
 <section styles="border=1px">
-  <app-box-error *ngFor="let item of getErrors()" [showCloseButton]=false [boxTitle]="item.boxTitle" [boxText]="item.boxText"></app-box-error>
+  <app-box-error *ngFor="let item of getErrors()" [showCloseButton]=true [boxTitle]="item.boxTitle" [boxText]="item.boxText"></app-box-error>
+  <app-box-success *ngFor="let item of getMessages()" [showCloseButton]=true [boxTitle]="item.boxTitle" [boxText]="item.boxText"></app-box-success>
   <form role="form" [formGroup]="formGroupRules">
     <app-box
       [boxTitle]="'Personal Information'"
@@ -14,7 +15,7 @@
     <div class="row">
       <div class="col-sm-10"></div>
       <div class="col-sm-1">
-        <button class="btn btn-primary" style="width: 120px;" (click)="submit($event)">Save</button>
+        <button class="btn btn-primary" style="width: 120px;" (click)="submit($event)" [disabled]="!isValid()">Save</button>
       </div>
     </div>
 

@@ -57,6 +57,15 @@ export class FormBaseComponent<TEntity> {
     return result;
   }
 
+  getMessages(): any[] {
+    const result: any[] = [];
+    this.service.messages.forEach(item => {
+      result.push(item);
+    });
+
+    return result;
+  }
+
   public submit(form: any) {
     this.service.save(this.service.entity);
   }

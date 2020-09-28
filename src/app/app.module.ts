@@ -29,6 +29,7 @@ import { NgSelect2Module } from 'ng-select2';
 import { HttpClientModule } from '@angular/common/http';
 import { InputBaseComponent } from './components/controls/input-base/input-base.component';
 import { PersonInfoComponent } from './layout/shared/person/person-info/person-info.component';
+import { BoxSuccessComponent } from './components/controls/box-success/box-success.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { PersonInfoComponent } from './layout/shared/person/person-info/person-i
     StandardFormComponent,
     InputBaseComponent,
     PersonInfoComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    BoxSuccessComponent
   ],
   imports: [
     BrowserModule,

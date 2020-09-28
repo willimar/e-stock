@@ -1,10 +1,11 @@
 import { UserInfo } from './../../../../models/registers/user-info';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, ValidatorFn, Validators } from '@angular/forms';
 import { PersonService } from './../../../../services/register/person.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Person } from '../../../../models/registers/person';
 import { FormBaseComponent } from '../../../../components/controls/form-base.component';
+import { EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-user-info',
@@ -26,15 +27,28 @@ export class UserInfoComponent extends FormBaseComponent<Person> implements OnIn
   ngOnInit(): void {
     this.formGroupRules = this.formBuilder.group({
       userName: this.formBuilder.control('', [Validators.required, Validators.minLength(8)]),
-      userEmail: this.formBuilder.control('', [Validators.required]),
-      userPassword: this.formBuilder.control('', [Validators.required, Validators.minLength(8)]),
-      userPasswordAux: this.formBuilder.control('', [Validators.required, Validators.minLength(8)])
+      userEmail: this.formBuilder.control('', [Validators.required, Validators.pattern(FormBaseComponent.emailFormat)]),
+      userPassword: this.formBuilder.control('', [Validators.required, Validators.minLength(8), Validators.pattern(/[A-Z]/), Validators.pattern(/[0-9]/), Validators.pattern(/[a-z]/)]),
+      userPasswordAux: this.formBuilder.control('', [Validators.required, Validators.minLength(8), UserInfoComponent.passwordCheck])
     }, {validator: UserInfoComponent.equalTo()});
+    this.service.formGroup.push(this.formGroupRules);
   }
 
   savePerson(form: UserInfo): void {
-
+    this.service.entity.userInfo.userName = form.userName;
+    this.service.entity.userInfo.userEmail = form.userEmail;
+    this.service.entity.userInfo.userPassword = form.userPassword;
   }
 
+  static passwordCheck(fc: FormControl) {
+    const password = fc.parent ? fc.parent.controls['userPassword'].value : EMPTY;
+    const passwordAux = fc.value;
+
+    if (password === passwordAux) {
+      return (null);
+    } else {
+      return ({passwordCheck: true});
+    }
+  }
 
 }

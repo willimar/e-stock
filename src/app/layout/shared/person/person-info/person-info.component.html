@@ -6,7 +6,7 @@
             [name]="'name'"
             [required]="true"
             [errorMessage]="'Name is required with min 10 caracters.'">
-            <input type="text" class="form-control" placeholder="Input your name..." formControlName="name" autocomplete="off" [value]="service.entity.personInfo.name" (change)="savePerson(formGroupRules.value)">
+            <input type="text" class="form-control" placeholder="Input your full name..." formControlName="name" autocomplete="off" [value]="service.entity.personInfo.name" (change)="savePerson(formGroupRules.value)">
       </app-input>
     </div>
     <div class="col-sm-3">
@@ -53,7 +53,7 @@
                 <select class="form-control" formControlName="gender" [value]="service.entity.personInfo.gender" (change)="savePerson(formGroupRules.value)">
                     <option value="" selected>(Select)</option>
                     <option value="1">Female</option>
-                    <option value="0">Male</option>
+                    <option value="2">Male</option>
                 </select>
         </app-input>
     </div>
@@ -64,9 +64,9 @@
                 [required]="true">
                 <select class="form-control" formControlName="maritalStatus" [value]="service.entity.personInfo.maritalStatus" (change)="savePerson(formGroupRules.value)">
                     <option value="" selected>(Select)</option>
-                    <option value="0">Married</option>
-                    <option value="1">Single</option>
-                    <option value="2">Widower</option>
+                    <option value="1">Married</option>
+                    <option value="2">Single</option>
+                    <option value="3">Widower</option>
                 </select>
         </app-input>
     </div>

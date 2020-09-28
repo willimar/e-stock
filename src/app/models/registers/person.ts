@@ -9,7 +9,7 @@ export class Person extends BaseModel {
   public personInfo: PersonInfo = new PersonInfo();
   public userInfo: UserInfo = new UserInfo();
   public personalContacts: PersonalContact[] = [];
-  public dependents: Person[] = [];
+  public dependents: PersonInfo[] = [];
   public addresses: Address[] = [];
   public documents: Document[] = [];
 }

@@ -15,7 +15,6 @@ export class UserComponent extends FormBaseComponent<Person> implements OnInit {
     super();
 
     this.formBuilder = formBuilder;
-
   }
 
   ngOnInit(): void {
@@ -24,4 +23,18 @@ export class UserComponent extends FormBaseComponent<Person> implements OnInit {
     }, {});
   }
 
+  isValid(): boolean {
+    let result = true;
+
+    if (this.service.formGroup === undefined) {
+      return true;
+    }
+
+    //result = result && this.service.formGroup.valid;
+    this.service.formGroup.forEach(element => {
+      result = result && element.valid;
+    });
+
+    return result;
+  }
 }

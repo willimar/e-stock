@@ -10,6 +10,7 @@ import { ISelect } from './../../../../services/interfaces/select';
 import { Component, OnInit, Input } from '@angular/core';
 import { Person } from '../../../../models/registers/person';
 import { FormBaseComponent } from '../../../../components/controls/form-base.component';
+import { Guid } from '../../../../models/shared/guid';
 
 @Component({
   selector: 'app-person-info',
@@ -29,7 +30,7 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
 
   ngOnInit(): void {
     this.formGroupRules = this.formBuilder.group({
-      name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      name: this.formBuilder.control('', [Validators.required, Validators.minLength(10), Validators.pattern(/^[A-Z][a-z]+? [A-Z].{3}/)]),
       birthDay: this.formBuilder.control('', [Validators.required]),
       birthState: this.formBuilder.control('', []),
       birthCity: this.formBuilder.control('', []),
@@ -38,6 +39,7 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
       specialNeeds: this.formBuilder.control('', []),
       nickName: this.formBuilder.control('', [])
     }, {validator: PersonInfoComponent.equalTo});
+    this.service.formGroup.push(this.formGroupRules);
   }
 
   savePerson(form: PersonInfo): void {
@@ -73,7 +75,7 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
     return result;
   }
 
-  getCity(): string {
+  getCity(): Guid {
     return this.service.entity.personInfo.birthCity;
   }
 

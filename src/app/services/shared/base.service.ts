@@ -14,19 +14,22 @@ export class BaseService<TEntity> {
 
   public errorMessages: any[] = [];
   public messages: any[] = [];
-  public formGroup: FormGroup;
+  public formGroup: FormGroup[] = [];
   public entity: TEntity;
+  protected controller: string;
 
   protected http: HttpClient;
 
   protected exceptionResolve(e: any): void {
-    const message = {
-      boxTitle: `Message type ${e.name}`,
-      boxText: `Code: ${e.status} with message: ${e.message}`,
-      isError: false
-    };
+    e.error.forEach(element => {
+      const message = {
+        boxTitle: `Message type ${element.messageType}`,
+        boxText: `Code: ${element.code} with message: ${element.message}`,
+        isError: false
+      };
 
-    this.errorMessages.push(message);
+      this.errorMessages.push(message);
+    });
   }
 
   protected responseResolve(value: any[]): void {
@@ -35,7 +38,7 @@ export class BaseService<TEntity> {
     value.forEach(item => {
       const code: number = item.code;
       const message = {
-        boxTitle: `Message type ${item.messageTipe}`,
+        boxTitle: `Message type ${item.messageType}`,
         boxText: `Code: ${code} with message: ${item.message}`,
         isError: false
       };
@@ -106,7 +109,7 @@ export class BaseService<TEntity> {
       })
     };
 
-    return this.http.post(`${SettingComponent.crudApiUrl}/api/Person/Person`,
+    return this.http.post(`${SettingComponent.crudApiUrl}/api/${this.controller}`,
         JSON.stringify(value),
         httpOptions);
   }

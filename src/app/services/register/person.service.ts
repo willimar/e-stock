@@ -21,6 +21,7 @@ export class PersonService extends BaseService<Person> {
       this.entity.id = Guid.newGuid();
       this.entity.personInfo.id = Guid.newGuid();
       this.entity.userInfo.id = Guid.newGuid();
+      this.controller = 'Account/Append';
   }
 
   addContactItem(contact: PersonalContact): void {
@@ -73,7 +74,7 @@ export class PersonService extends BaseService<Person> {
 
     graphClient.result.subscribe(content => {
       const entityResult = content.data.entity[0];
-      this.formGroup.controls.name = entityResult.name;
+      //this.formGroup.controls.name = entityResult.name;
     });
 
     return graphClient.result;
