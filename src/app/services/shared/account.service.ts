@@ -13,17 +13,4 @@ export class AccountService extends BaseService<Person> {
     super();
     this.domain = SettingComponent.authApiUrl;
   }
-
-  login(user: any): Promise<any> {
-    return new Promise((resolve) => {
-      window.localStorage.setItem('token', 'meu-token');
-      resolve(true);
-    });
-  }
-
-  createAccount(account: any): Promise<any> {
-    return new Promise((resolve) => {
-      resolve(true);
-    });
-  }
 }

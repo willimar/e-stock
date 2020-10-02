@@ -17,13 +17,13 @@ export class BaseService<TEntity> {
   public messages: any[] = [];
   public formGroup: FormGroup[] = [];
   public entity: TEntity;
-  protected controller: string;
+  public controller: string;
   public domain: string;
   public status: StatusService = StatusService.reading;
 
   protected http: HttpClient;
 
-  protected exceptionResolve(e: any): void {
+  public exceptionResolve(e: any): void {
     e.error.forEach(element => {
       const message = {
         boxTitle: `Message type ${element.messageType}`,
@@ -106,7 +106,7 @@ export class BaseService<TEntity> {
       return result;
   }
 
-  public submit(value: TEntity): any {
+  public submit(value: any): any {
     const header = new Headers();
     header.append('Content-Type', 'application/json');
 
