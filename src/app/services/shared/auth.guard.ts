@@ -16,11 +16,11 @@ export class AuthGuard implements CanActivate {
         return true;
       }
       else {
-        const token = atob(window.localStorage.getItem('authToken'));
+        const token = window.localStorage.getItem('authToken');
 
         if (token) {
           SettingComponent.logged = true;
-          SettingComponent.authToken = token;
+          SettingComponent.authToken = atob(token);
           return true;
         } else {
           this.router.navigate(['login']);
