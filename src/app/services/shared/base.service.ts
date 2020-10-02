@@ -6,6 +6,7 @@ import { SettingComponent } from '../../layout/shared/setting/setting.component'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HandleCode } from '../enums/handle-code.enum';
 import { FormGroup } from '@angular/forms';
+import { StatusService } from '../enums/status-service.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,8 @@ export class BaseService<TEntity> {
   public formGroup: FormGroup[] = [];
   public entity: TEntity;
   protected controller: string;
+  public domain: string;
+  public status: StatusService = StatusService.reading;
 
   protected http: HttpClient;
 
@@ -30,6 +33,8 @@ export class BaseService<TEntity> {
 
       this.errorMessages.push(message);
     });
+
+    this.status = StatusService.error;
   }
 
   protected responseResolve(value: any[]): void {
@@ -51,6 +56,8 @@ export class BaseService<TEntity> {
         this.errorMessages.push(message);
       }
     });
+
+    this.status = StatusService.reading;
   }
 
   protected getCollectionIndex(collection: BaseModel[], id: Guid): number {
@@ -109,12 +116,13 @@ export class BaseService<TEntity> {
       })
     };
 
-    return this.http.post(`${SettingComponent.crudApiUrl}/api/${this.controller}`,
+    return this.http.post(`${this.domain}/api/${this.controller}`,
         JSON.stringify(value),
         httpOptions);
   }
 
   public save(value: TEntity): void {
+    this.status = StatusService.saving;
     this.errorMessages = [];
     this.messages = [];
 

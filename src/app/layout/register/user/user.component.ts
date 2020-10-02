@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Person } from '../../../models/registers/person';
 import { PersonService } from '../../../services/register/person.service';
 import { FormBaseComponent } from '../../../components/controls/form-base.component';
+import { SettingComponent } from '../../shared/setting/setting.component';
 
 @Component({
   selector: 'app-user',
@@ -15,6 +16,7 @@ export class UserComponent extends FormBaseComponent<Person> implements OnInit {
     super();
 
     this.formBuilder = formBuilder;
+    this.service.domain = SettingComponent.authApiUrl;
   }
 
   ngOnInit(): void {
@@ -23,18 +25,5 @@ export class UserComponent extends FormBaseComponent<Person> implements OnInit {
     }, {});
   }
 
-  isValid(): boolean {
-    let result = true;
 
-    if (this.service.formGroup === undefined) {
-      return true;
-    }
-
-    //result = result && this.service.formGroup.valid;
-    this.service.formGroup.forEach(element => {
-      result = result && element.valid;
-    });
-
-    return result;
-  }
 }

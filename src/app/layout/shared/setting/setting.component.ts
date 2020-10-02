@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingComponent implements OnInit {
 
-  public static crudApiUrl = 'https://localhost:5001'; // 'http://crud-api.eastus.azurecontainer.io/api';
+  public static crudApiUrl = "";
+  public static authApiUrl = 'https://authentic-api.herokuapp.com'; // 'http://crud-api.eastus.azurecontainer.io/api';
   public static cityApiUrl = 'https://cityapp-api.herokuapp.com/graphql';
 
   constructor() { }

@@ -3,6 +3,7 @@ import { IColumnDef } from './../interfaces/icolumn-def';
 import { Status } from './../../models/enums/status.enum';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Output, Injectable, Input, Component } from '@angular/core';
+import { StatusService } from '../../services/enums/status-service.enum';
 
 @Component({
   selector: 'app-form-base',
@@ -68,5 +69,25 @@ export class FormBaseComponent<TEntity> {
 
   public submit(form: any) {
     this.service.save(this.service.entity);
+  }
+
+  isValid(): boolean {
+
+    if (this.service.status === StatusService.saving) {
+      return false;
+    }
+
+    let result = true;
+
+    if (this.service.formGroup === undefined) {
+      return true;
+    }
+
+    //result = result && this.service.formGroup.valid;
+    this.service.formGroup.forEach(element => {
+      result = result && element.valid;
+    });
+
+    return result;
   }
 }

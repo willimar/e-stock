@@ -1,7 +1,7 @@
 <header class="main-header">
 
   <!-- Logo -->
-  <a href="/" class="logo">
+  <a href="/" class="logo" style="height: 50px;">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>{{prefixMin}}</b></span>
     <!-- logo for regular state and mobile devices -->
@@ -9,108 +9,10 @@
   </a>
 
   <!-- Header Navbar: style can be found in header.less -->
-  <nav class="navbar navbar-static-top">
+  <div class="navbar navbar-static-top" style="height: 50px;">
     <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="padding: 6px;">
       <span class="sr-only">Toggle navigation</span>
     </a>
-    <!-- Navbar Right Menu -->
-    <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-        <!-- Messages: style can be found in dropdown.less-->
-        <li class="dropdown messages-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-envelope-o"></i>
-            <span class="label label-success">{{messages.length}}</span>
-          </a>
-
-          <ul class="dropdown-menu">
-            <li class="header">You have {{messages.length}} messages</li>
-            <li>
-              <!-- inner menu: contains the actual data -->
-              <ul class="menu">
-                <li *ngFor="let item of messages" >
-                  <!-- start message -->
-                  <a href="#">
-                    <div class="pull-left">
-                      <img src="#" class="img-circle" alt="User Image">
-                    </div>
-                    <h4>
-                      {{item.subject}}
-                      <small>
-                        <i class="fa fa-clock-o"></i> 5 mins
-                      </small>
-                    </h4>
-                    <p>{{item.message}}</p>
-                  </a>
-                </li>
-                <!-- end message -->
-              </ul>
-            </li>
-            <li class="footer">
-              <small  class="footer">
-                <a href="#">See All Messages</a>
-              </small>
-            </li>
-          </ul>
-        </li>
-
-        <!-- Notifications: style can be found in dropdown.less -->
-        <li class="dropdown notifications-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-bell-o"></i>
-            <span class="label label-warning">{{notications.length}}</span>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="header">You have {{notications.length}} notifications</li>
-            <li>
-              <!-- inner menu: contains the actual data -->
-              <ul class="menu">
-                <li *ngFor="let item of notications" >
-                  <a href="#">
-                    <i class="{{item.ico}}"></i> {{item.message}}
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="footer"><small><a href="#">View all</a></small></li>
-          </ul>
-        </li>
-
-        <!-- User Account: style can be found in dropdown.less -->
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <!-- <img src="assets/user2-160x160.jpg" class="user-image" alt="User Image"> -->
-          <span class="hidden-xs">{{userName.getLastName()}}, {{userName.getFirstName()}}</span>
-    </a>
-    <ul class="dropdown-menu">
-      <!-- User image -->
-      <li class="user-header">
-        <img src="assets/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-        <p>
-            {{userName.getLastName()}}, {{userName.getFirstName()}} - Web Developer
-          <small>Member since Nov. 2012</small>
-        </p>
-      </li>
-
-      <!-- Menu Footer-->
-      <li class="user-footer">
-        <div class="pull-left">
-          <a href="#" class="btn btn-default btn-flat">Profile</a>
-        </div>
-        <div class="pull-right">
-          <a href="#" class="btn btn-default btn-flat">Sign out</a>
-        </div>
-      </li>
-    </ul>
-  </li>
-  <!-- Control Sidebar Toggle Button -->
-  <li>
-    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-  </li>
-  </ul>
   </div>
-
-  </nav>
-  </header>
+</header>
