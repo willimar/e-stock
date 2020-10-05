@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputBaseComponent } from './components/controls/input-base/input-base.component';
 import { PersonInfoComponent } from './layout/shared/person/person-info/person-info.component';
 import { BoxSuccessComponent } from './components/controls/box-success/box-success.component';
+import { ModalComponent } from './components/controls/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { BoxSuccessComponent } from './components/controls/box-success/box-succe
     InputBaseComponent,
     PersonInfoComponent,
     UserInfoComponent,
-    BoxSuccessComponent
+    BoxSuccessComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
