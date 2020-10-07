@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   public majorVersion = 1;
   public minorVersion = 0;
   public release = 1;
-  public build = 19;
+  public build = 20;
   public companyName = 'Mundo Conecto';
   public appName = 'e-stock';
   public description = 'Simple system to record info about servers hosts.';

@@ -32,6 +32,7 @@ import { PersonInfoComponent } from './layout/shared/person/person-info/person-i
 import { BoxSuccessComponent } from './components/controls/box-success/box-success.component';
 import { ModalComponent } from './components/controls/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ForgotPasswordComponent } from './layout/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PersonInfoComponent,
     UserInfoComponent,
     BoxSuccessComponent,
-    ModalComponent
+    ModalComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

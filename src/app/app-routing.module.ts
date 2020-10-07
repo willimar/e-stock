@@ -7,6 +7,7 @@ import { PersonComponent } from './layout/register/person/person.component';
 import { HomeComponent } from './layout/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ForgotPasswordComponent } from './layout/forgot-password/forgot-password.component';
 
 
 const routes: Routes =
@@ -30,7 +31,8 @@ const routes: Routes =
       { path: '', component: AuthenticationComponent },
       { path: 'login', component: LoginComponent },
       { path: 'account', component: UserComponent },
-      { path: 'about', component: AboutComponent }
+      { path: 'about', component: AboutComponent },
+      { path: 'forgot-password', component: ForgotPasswordComponent }
     ]
   }
 ];
