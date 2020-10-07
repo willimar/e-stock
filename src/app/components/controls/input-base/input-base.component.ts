@@ -32,11 +32,11 @@ export class InputBaseComponent implements OnInit, AfterContentInit {
   }
 
   hasSuccess(): boolean {
-    return this.input.valid && (this.input.dirty || this.input.touched) && this.required;
+    return this.input.valid && (this.input.dirty || this.input.touched) && this.required && this.input.value.length > 0;
   }
 
   hasError(): boolean {
-    return !this.input.valid && (this.input.dirty || this.input.touched) && this.required;
+    return !this.input.valid && (this.input.dirty || this.input.touched) && this.required && this.input.value.length > 0;
   }
 
 }

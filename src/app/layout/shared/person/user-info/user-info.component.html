@@ -23,8 +23,8 @@
             [caption]="'Password [8 numbers and chars]'"
             [name]="'userPassword'"
             [required]="true"
-            [errorMessage]="'Needs min of the 8 lower and upper chars and the number too.'">
-            <input type="password" class="form-control" placeholder="Needs min of the 8 lower and upper chars and the number too." formControlName="userPassword" autocomplete="off" (change)="savePerson(formGroupRules.value)">
+            [errorMessage]="'Minimun 8 chars.'">
+            <input type="password" class="form-control" placeholder="Minimun 8 chars." formControlName="userPassword" autocomplete="off" (change)="savePerson(formGroupRules.value)">
       </app-input>
     </div>
     <div class="col-sm-3">
@@ -33,7 +33,7 @@
             [name]="'userPasswordAux'"
             [required]="true"
             [errorMessage]="'Password check is diferente of the original password.'">
-            <input type="password" class="form-control" placeholder="Input your name..." formControlName="userPasswordAux" autocomplete="off" (change)="savePerson(formGroupRules.value)">
+            <input type="password" class="form-control" placeholder="Check password..." formControlName="userPasswordAux" autocomplete="off" (change)="savePerson(formGroupRules.value)">
       </app-input>
     </div>
   </div>

@@ -89,6 +89,25 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
     return result;
   }
 
+  getGenders(): any[] {
+    const result = [];
+
+    result.push({id: 1, text: "Female"});
+    result.push({id: 2, text: "Male"});
+
+    return result;
+  }
+
+  getMaritalStatus(): any[] {
+    const result = [];
+
+    result.push({id: 1, text: "Married"});
+    result.push({id: 2, text: "Single"});
+    result.push({id: 3, text: "Widower"});
+
+    return result;
+  }
+
   private loadStates(): void {
     const client = new GraphClientService(this.http);
     const body = client.appendBody('state');

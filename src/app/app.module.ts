@@ -31,6 +31,7 @@ import { InputBaseComponent } from './components/controls/input-base/input-base.
 import { PersonInfoComponent } from './layout/shared/person/person-info/person-info.component';
 import { BoxSuccessComponent } from './components/controls/box-success/box-success.component';
 import { ModalComponent } from './components/controls/modal/modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -65,9 +66,10 @@ import { ModalComponent } from './components/controls/modal/modal.component';
     ReactiveFormsModule,
     NgSelect2Module,
     AppRoutingModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    NgbModule
   ],
-  providers: [FormBuilder, Person],
+  providers: [FormBuilder, Person, ModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

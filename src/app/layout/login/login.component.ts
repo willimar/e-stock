@@ -7,6 +7,8 @@ import { FormBaseComponent } from '../../components/controls/form-base.component
 import { SettingComponent } from '../shared/setting/setting.component';
 import { ReturnCode } from '../../services/enums/return-code.enum';
 
+declare var $: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +21,8 @@ export class LoginComponent extends FormBaseComponent<Person> implements OnInit 
     password: ''
   };
 
-  constructor(public service: AccountService, private router: Router, public formBuilder: FormBuilder) {
+  constructor(public service: AccountService, private router: Router,
+    public formBuilder: FormBuilder) {
     super();
     SettingComponent.authToken = '';
     SettingComponent.logged = false;
@@ -79,6 +82,7 @@ export class LoginComponent extends FormBaseComponent<Person> implements OnInit 
         };
 
         this.service.errorMessages.push(message);
+        this.openError();
         return;
       }
 
@@ -86,12 +90,25 @@ export class LoginComponent extends FormBaseComponent<Person> implements OnInit 
       this.service.controller = 'Account/Login';
 
       const result = this.service.submit(this.login).subscribe(
-        (data: any[]) => this.resolveLogin(data),
-        (error: any) => this.service.exceptionResolve(error));
+        (data: any[]) => {
+          const result = this.resolveLogin(data);
+          if (result === false)
+          {
+            this.openError();
+          }
+        },
+        (error: any) => {
+          this.service.exceptionResolve(error);
+          this.openError();
+        });
 
     } catch (error) {
       console.error(error);
     }
+  }
+
+  openError() {
+    $('#login-error').modal('show');
   }
 
 }

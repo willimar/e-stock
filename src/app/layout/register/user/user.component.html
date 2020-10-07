@@ -1,6 +1,16 @@
+<app-modal [modalName]="'modal-error'" [modalType]="'modal-danger'" [modalTitle]="'Create account.'">
+  <ul>
+    <li *ngFor="let item of getErrors()">{{item.boxText}}</li>
+  </ul>
+</app-modal>
+
+<app-modal [modalName]="'modal-info'" [modalType]="'modal-success'" [modalTitle]="'Create account.'">
+  <ul>
+    <li *ngFor="let item of getMessages()">{{item.boxText}}</li>
+  </ul>
+</app-modal>
+
 <section style="margin-left: 5px; margin-right: 5px; margin-top: 2px;  margin-bottom: 2px;">
-  <app-box-error *ngFor="let item of getErrors()" [showCloseButton]=true [boxTitle]="item.boxTitle" [boxText]="item.boxText"></app-box-error>
-  <app-box-success *ngFor="let item of getMessages()" [showCloseButton]=true [boxTitle]="item.boxTitle" [boxText]="item.boxText"></app-box-success>
   <form role="form" [formGroup]="formGroupRules">
     <app-box
       [boxTitle]="'Personal Information'"

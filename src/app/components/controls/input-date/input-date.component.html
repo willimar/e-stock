@@ -2,9 +2,9 @@
                         [class.has-error]="hasError()">
   <label>
       <span>
-        <i class="fa fa-check" *ngIf="hasSuccess()"> {{caption}}</i>
-        <i class="fa fa-remove" *ngIf="hasError()"> {{caption}}</i>
-        <i class="fa" *ngIf="!hasSuccess() && !hasError()"> {{caption}}</i>
+        <i class="fa fa-check" *ngIf="hasSuccess()"> {{caption}}<span *ngIf="required"> *</span></i>
+        <i class="fa fa-remove" *ngIf="hasError()"> {{caption}}<span *ngIf="required"> *</span></i>
+        <i class="fa" *ngIf="!hasSuccess() && !hasError()"> {{caption}}<span *ngIf="required"> *</span></i>
       </span>
   </label>
   <div class="input-group">

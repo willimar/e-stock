@@ -1,5 +1,10 @@
+<app-modal [modalName]="'login-error'" [modalType]="'modal-danger'" [modalTitle]="'Access danied.'">
+  <ul>
+    <li *ngFor="let item of getErrors()">{{item.boxText}}</li>
+  </ul>
+</app-modal>
+
 <section styles="border=1px">
-  <app-box-error *ngFor="let item of getErrors()" [showCloseButton]=false [boxTitle]="item.boxTitle" [boxText]="item.boxText"></app-box-error>
   <div class = "row">&nbsp;</div>
   <div class = "row">&nbsp;</div>
   <div class = "row">
@@ -11,7 +16,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
             <app-input
-              [caption]="'Login'"
+              [caption]="'User name'"
               [name]="'userName'"
               [required]="true"
               [errorMessage]="'Login field is required.'">
@@ -36,7 +41,7 @@
           <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-              <button class="btn btn-primary" style="width: 100%;" (click)="onSubmit($event)">Login</button>
+              <button class="btn btn-primary" style="width: 100%;" (click)="onSubmit($event)">Enter</button>
             </div>
             <div class="col-sm-1"></div>
           </div>

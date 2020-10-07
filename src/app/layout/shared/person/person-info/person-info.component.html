@@ -7,6 +7,7 @@
             [required]="true"
             [errorMessage]="'Name is required with min 10 caracters.'">
             <input type="text" class="form-control" placeholder="Input your full name..." formControlName="name" autocomplete="off" [value]="service.entity.personInfo.name" (change)="savePerson(formGroupRules.value)">
+
       </app-input>
     </div>
     <div class="col-sm-3">
@@ -32,17 +33,17 @@
         <app-input
                 [caption]="'Birth state'"
                 [name]="'state'"
-                [required]="false"
+                [required]="true"
                 [style]="''"> <br/>
-                <ng-select2 [width] = "250" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getStates()" [value]="getState()" [formControlName]="'birthState'" [placeholder]="'Select a state...'" [value]="service.entity.personInfo.birthState"  (valueChanged)="setBirthState($event)"> </ng-select2>
+                <ng-select2 [width] = "'inherit'" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getStates()" [formControlName]="'birthState'" [placeholder]="'Select a state...'" [value]="service.entity.personInfo.birthState"  (valueChanged)="setBirthState($event)"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-3">
         <app-input
                 [caption]="'Birth city'"
                 [name]="'birthCity'"
-                [required]="false"> <br/>
-                <ng-select2 [width] = "250" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getCities()" [value]="getCity()" [formControlName]="'birthCity'" [placeholder]="'Select a city...'" [value]="service.entity.personInfo.birthCity" (valueChanged)="setBirthCity($event)"> </ng-select2>
+                [required]="true"> <br/>
+                <ng-select2 [width] = "'inherit'" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getCities()" [formControlName]="'birthCity'" [placeholder]="'Select a city...'" [value]="service.entity.personInfo.birthCity" (valueChanged)="setBirthCity($event)"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-2">
@@ -50,11 +51,8 @@
                 [caption]="'Gender'"
                 [name]="'gender'"
                 [required]="true">
-                <select class="form-control" formControlName="gender" [value]="service.entity.personInfo.gender" (change)="savePerson(formGroupRules.value)">
-                    <option value="" selected>(Select)</option>
-                    <option value="1">Female</option>
-                    <option value="2">Male</option>
-                </select>
+                <ng-select2 [width] = "'inherit'" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getGenders()" [formControlName]="'gender'" [placeholder]="'Select a gender...'" [value]="service.entity.personInfo.gender"  (valueChanged)="savePerson(formGroupRules.value)"> </ng-select2>
+
         </app-input>
     </div>
     <div class="col-sm-2">
@@ -62,12 +60,7 @@
                 [caption]="'Marital status'"
                 [name]="'maritalStatus'"
                 [required]="true">
-                <select class="form-control" formControlName="maritalStatus" [value]="service.entity.personInfo.maritalStatus" (change)="savePerson(formGroupRules.value)">
-                    <option value="" selected>(Select)</option>
-                    <option value="1">Married</option>
-                    <option value="2">Single</option>
-                    <option value="3">Widower</option>
-                </select>
+                <ng-select2 [width] = "'inherit'" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getMaritalStatus()" [formControlName]="'maritalStatus'" [placeholder]="'Select a marital status...'" [value]="service.entity.personInfo.maritalStatus"  (valueChanged)="savePerson(formGroupRules.value)"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-2">

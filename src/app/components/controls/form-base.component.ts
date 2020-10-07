@@ -5,6 +5,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Output, Injectable, Input, Component } from '@angular/core';
 import { StatusService } from '../../services/enums/status-service.enum';
 
+declare var $: any;
+
 @Component({
   selector: 'app-form-base',
   templateUrl: './form-base.component.html',

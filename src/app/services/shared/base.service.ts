@@ -8,6 +8,8 @@ import { HandleCode } from '../enums/handle-code.enum';
 import { FormGroup } from '@angular/forms';
 import { StatusService } from '../enums/status-service.enum';
 
+declare var $: any;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +36,8 @@ export class BaseService<TEntity> {
       this.errorMessages.push(message);
     });
 
+    this.openError();
+
     this.status = StatusService.error;
   }
 
@@ -54,10 +58,25 @@ export class BaseService<TEntity> {
       } else {
         message.isError = true;
         this.errorMessages.push(message);
+
       }
     });
 
+    if (this.errorMessages.length > 0) {
+      this.openError();
+    } else if (this.messages.length > 0) {
+      this.openInfo();
+    }
+
     this.status = StatusService.reading;
+  }
+
+  openError() {
+    $('#modal-error').modal('show');
+  }
+
+  openInfo() {
+    $('#modal-info').modal('show');
   }
 
   protected getCollectionIndex(collection: BaseModel[], id: Guid): number {
