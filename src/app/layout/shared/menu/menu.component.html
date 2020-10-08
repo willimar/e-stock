@@ -7,14 +7,14 @@
 
       <li class="treeview" *ngFor="let rootItem of rootMenu" >
         <a href="#">
-          <i class="{{rootItem.classImage}}"></i> <span>{{rootItem.label}}</span>
+          <i class="{{rootItem.classImage}}"></i> <span>{{translate.getString(rootItem.actionRouter)}}</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
           <li class="treeview" *ngFor="let itemMenu of rootItem.menuItems" >
-            <a href="#"><i class="{{itemMenu.classImage}}"></i> {{itemMenu.label}}
+            <a href="#"><i class="{{itemMenu.classImage}}"></i> {{translate.getString(itemMenu.actionRouter)}}
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -22,7 +22,7 @@
             <ul class="treeview-menu">
                 <li *ngFor="let item of itemMenu.menuItems" >
                   <a routerLinkActive="active" [routerLink]='[item.actionRouter]'>
-                    <i class="{{item.classImage}}"></i> {{item.label}}
+                    <i class="{{item.classImage}}"></i> {{translate.getString(item.actionRouter)}}
                   </a>
                 </li>
             </ul>

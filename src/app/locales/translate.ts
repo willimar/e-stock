@@ -7,7 +7,7 @@ export class Translate {
 
   }
 
-  public GetString(key: string): string {
+  getString(key: string): string {
     let flag: string = SetupLocale.locale;
 
     if (SetupLocale.locale.length > 0) {

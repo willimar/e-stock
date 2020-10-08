@@ -1,5 +1,7 @@
 import { MenuDetail } from './../../../models/layout/menu/MenuDetail';
 import { Component, OnInit } from '@angular/core';
+import { MenuComponentHtml } from '../../../locales/pt/menu.component.html';
+import { Translate } from '../../../locales/translate';
 
 @Component({
   selector: 'app-menu',
@@ -136,6 +138,8 @@ export class MenuComponent implements OnInit {
       ]
     }
   ];
+
+  translate: Translate = new Translate(new MenuComponentHtml());
 
   constructor() {
     console.log(this.rootMenu);
