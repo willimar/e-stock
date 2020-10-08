@@ -1,1 +1,16 @@
-<p>user-setting works!</p>
+
+<div class="row">
+  <div class="col-sm-12">
+
+            <ng-select2
+              [width] = "'inherit'"
+              [style]="'padding:3px 3px; border:0px; background-color:inherit;'"
+              [class]="'form-control'"
+              [data]="getLocales()"
+              [placeholder]="'Select a city...'"
+              [value]="getLocale()"
+              (valueChanged)="setLocale($event)" > </ng-select2>
+
+  </div>
+</div>
+
