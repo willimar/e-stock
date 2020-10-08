@@ -1,5 +1,7 @@
 import { AppComponent } from './../../../app.component';
 import { Component, OnInit } from '@angular/core';
+import { Translate } from '../../../locales/translate';
+import { AboutComponentHtml } from '../../../locales/pt/about.component.html';
 
 @Component({
   selector: 'app-about',
@@ -12,6 +14,8 @@ export class AboutComponent implements OnInit {
   author: string;
   title: string;
   version: string;
+
+  translate: Translate = new Translate(new AboutComponentHtml());
 
   constructor(private appComponent: AppComponent) {
     this.copyRight = this.appComponent.copyRight;

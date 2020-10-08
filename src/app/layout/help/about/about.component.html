@@ -1,18 +1,18 @@
 <section class="content-header">
-  <h1>About</h1>
+  <h1>{{translate.GetString("about")}}</h1>
 </section>
 
 <section class="content">
   <p class="lead">
-    {{title}} - Version: {{version}} | One Mundo Conecto Idealization
+    {{title}} - {{translate.GetString("version")}}: {{version}} | {{translate.GetString("one-mundo-conecto-idealization")}}
   </p>
   <p class="lead">
     <b>{{copyRight}}</b> by {{author}}
   </p>
   <p class="lead">
-      This software was developed as part of the process of the study from the Angular Framework and the author don't is answer by the problems caused the use of the system and the recovered data.
+    {{translate.GetString("first-description")}}
   </p>
-  <p class="lead">
-      <b>About the functionality of the system:</b> The MC - HostInfo has by base, basic record and recovery of the information about the servers of your network. On this system you can find the host using the search tools.
+  <p class="lead" [innerHtml]="translate.GetString('second-description')">
+
   </p>
 </section>

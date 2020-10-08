@@ -1,18 +1,20 @@
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
+
   <!-- Create the tabs -->
   <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-    <li><a href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i class="fa fa-wrench"></i></a></li>
-    <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    <li class="nav-item"><a class="nav-link" href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i class="fa fa-wrench"></i></a></li>
+    <li class="nav-item"><a class="nav-link" href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+    <li class="nav-item"><a class="nav-link" href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    <li class="nav-item"><a class="nav-link" href="#control-sidebar-user-tab" data-toggle="tab"><i class="fa fa-user-o"></i></a></li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
     <!-- General tab content -->
-    <div id="control-sidebar-theme-demo-options-tab" class="tab-pane active">
+    <div id="control-sidebar-theme-demo-options-tab" class="tab-pane">
       <h4 class="control-sidebar-heading">System Options</h4>
-
+      <app-system-setting></app-system-setting>
     </div>
 
     <!-- Home tab content -->
@@ -24,14 +26,12 @@
     <!-- Settings tab content -->
     <div class="tab-pane" id="control-sidebar-settings-tab">
       <h3 class="control-sidebar-heading">General Settings</h3>
+      <app-general-setting></app-general-setting>
+    </div>
 
-      <!-- <mc-input
-            [caption]="'Register API'"
-            [name]="'urlRegisterApi'"
-            [required]="true"
-            [errorMessage]="'URL to register data.'">
-            <input type="text" class="form-control" placeholder="URL from the register API..." formControlName="urlRegisterApi" autocomplete="off">
-      </mc-input> -->
+    <div class="tab-pane" id="control-sidebar-user-tab">
+      <h3 class="control-sidebar-heading">User Account</h3>
+      <app-user-setting></app-user-setting>
     </div>
   </div>
 </aside>
