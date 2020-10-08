@@ -3,6 +3,9 @@ import { Locale } from "../locales";
 
 export class MenuComponentHtml implements ITranslate {
   messages: { [id: string]: string; } = {
+    [`header-menu-${Locale.enUs}`]: "MAIN NAVIGATION",
+    [`header-menu-${Locale.ptBR}`]: "MENU DO SISTEMA",
+
     [`register-${Locale.enUs}`]: "Registers",
     [`register-${Locale.ptBR}`]: "Cadastros",
 

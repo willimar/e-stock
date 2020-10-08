@@ -1,12 +1,12 @@
-<app-modal [modalName]="'login-error'" [modalType]="'modal-danger'" [modalTitle]="'Access danied.'">
+<app-modal [modalName]="'login-error'" [modalType]="'modal-danger'" [modalTitle]="translate.getString('access-danied')">
   <ul>
     <li *ngFor="let item of getErrors()">{{item.boxText}}</li>
   </ul>
 </app-modal>
 
-<app-modal [modalName]="'modal-info'" [modalType]="'modal-success'" [modalTitle]="'System access.'">
+<app-modal [modalName]="'modal-info'" [modalType]="'modal-success'" [modalTitle]="translate.getString('system-access')">
   <ul>
-    <li>You are logged in system.</li>
+    <li>{{translate.getString("loged-message")}}</li>
   </ul>
 </app-modal>
 
@@ -22,11 +22,11 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
             <app-input
-              [caption]="'User name'"
+              [caption]="translate.getString('userName')"
               [name]="'userName'"
               [required]="true"
               [errorMessage]="'Login field is required.'">
-              <input type="text" class="form-control" placeholder="User name or e-mail..." formControlName="userName" autocomplete="off">
+              <input type="text" class="form-control" placeholder="{{translate.getString('userNameMessage')}}" formControlName="userName" autocomplete="off">
             </app-input>
             </div>
             <div class="col-sm-1"></div>
@@ -35,11 +35,11 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
             <app-input
-              [caption]="'Password'"
+              [caption]="translate.getString('password')"
               [name]="'userPassword'"
               [required]="true"
               [errorMessage]="'Login field is required.'">
-              <input type="password" class="form-control" placeholder="User password..." formControlName="userPassword" autocomplete="off">
+              <input type="password" class="form-control" placeholder="{{translate.getString('password-message')}}" formControlName="userPassword" autocomplete="off">
             </app-input>
             </div>
             <div class="col-sm-1"></div>
@@ -47,21 +47,21 @@
           <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-              <button class="btn btn-primary" style="width: 100%;" (click)="onSubmit($event)">Enter</button>
+              <button class="btn btn-primary" style="width: 100%;" (click)="onSubmit($event)">{{translate.getString('enter')}}</button>
             </div>
             <div class="col-sm-1"></div>
           </div>
           <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10" style="text-align:center;">
-              <a routerLinkActive="active" [routerLink]='"../forgot-password"'>Forgot your password?</a>
+              <a routerLinkActive="active" [routerLink]='"../forgot-password"'>{{translate.getString('forgot-password')}}</a>
             </div>
             <div class="col-sm-1"></div>
           </div>
           <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10" style="text-align:center;">
-              <a routerLinkActive="active" [routerLink]='"../account"'>Create an account.</a>
+              <a routerLinkActive="active" [routerLink]='"../account"'>{{translate.getString('new-account')}}</a>
             </div>
             <div class="col-sm-1"></div>
           </div>

@@ -1,6 +1,6 @@
 import { MenuDetail } from './../../../models/layout/menu/MenuDetail';
 import { Component, OnInit } from '@angular/core';
-import { MenuComponentHtml } from '../../../locales/pt/menu.component.html';
+import { MenuComponentHtml } from '../../../locales/translations/menu.component.html';
 import { Translate } from '../../../locales/translate';
 
 @Component({

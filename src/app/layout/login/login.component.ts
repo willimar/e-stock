@@ -6,6 +6,8 @@ import { Person } from '../../models/registers/person';
 import { FormBaseComponent } from '../../components/controls/form-base.component';
 import { SettingComponent } from '../shared/setting/setting.component';
 import { ReturnCode } from '../../services/enums/return-code.enum';
+import { Translate } from '../../locales/translate';
+import { LoginComponentHtml } from '../../locales/translations/login.component.html';
 
 declare var $: any;
 
@@ -20,6 +22,8 @@ export class LoginComponent extends FormBaseComponent<Person> implements OnInit 
     user: '',
     password: ''
   };
+
+  translate: Translate = new Translate(new LoginComponentHtml());
 
   constructor(public service: AccountService, private router: Router,
     public formBuilder: FormBuilder) {
