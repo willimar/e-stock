@@ -4,12 +4,6 @@
   </ul>
 </app-modal>
 
-<app-modal [modalName]="'modal-info'" [modalType]="'modal-success'" [modalTitle]="'Create account.'">
-  <ul>
-    <li *ngFor="let item of getMessages()">{{item.boxText}}</li>
-  </ul>
-</app-modal>
-
 <section style="margin-left: 5px; margin-right: 5px; margin-top: 2px;  margin-bottom: 2px;">
   <form role="form" [formGroup]="formGroupRules">
     <app-box
@@ -23,7 +17,7 @@
       <app-user-info [service]="service"></app-user-info>
     </app-box>
     <div class="row justify-content-end">
-      <div class="col-sm-1" style="margin-right: 8px;">
+      <div class="col-sm-1" style="margin-right: 5%;">
         <button class="btn btn-primary" style="width: 120px;" (click)="submit($event)" [disabled]="!isValid()">Save</button>
       </div>
     </div>

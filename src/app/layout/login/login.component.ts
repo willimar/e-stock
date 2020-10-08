@@ -35,8 +35,10 @@ export class LoginComponent extends FormBaseComponent<Person> implements OnInit 
     }, {validator: null});
   }
 
-  resolveLogin(value: any[]): boolean {
+  resolveLogin(value: any[]) {
     this.service.errorMessages = [];
+
+    let result = false;
 
     value.forEach(item => {
       const code: number = item.code;
@@ -49,8 +51,6 @@ export class LoginComponent extends FormBaseComponent<Person> implements OnInit 
         };
 
         this.service.errorMessages.push(message);
-
-        return false;
       } else if (code === ReturnCode.accepted) {
         SettingComponent.authToken = item.message;
         SettingComponent.logged = true;
@@ -58,14 +58,8 @@ export class LoginComponent extends FormBaseComponent<Person> implements OnInit 
         window.localStorage.setItem("authToken", btoa(SettingComponent.authToken));
 
         this.router.navigate(['']);
-
-        return true;
-      } else {
-        return false;
       }
     });
-
-    return false;
   }
 
   onSubmit(sender: any): void {
@@ -91,8 +85,8 @@ export class LoginComponent extends FormBaseComponent<Person> implements OnInit 
 
       const result = this.service.submit(this.login).subscribe(
         (data: any[]) => {
-          const result = this.resolveLogin(data);
-          if (result === false)
+          this.resolveLogin(data);
+          if (SettingComponent.logged === false)
           {
             this.openError();
           }

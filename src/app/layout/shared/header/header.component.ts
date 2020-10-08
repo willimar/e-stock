@@ -3,6 +3,7 @@ import { Person } from './../../../models/registers/person';
 import { Notification } from './../../../models/layout/header/Notification';
 import { Message } from './../../../models/layout/header/Message';
 import { Component, OnInit } from '@angular/core';
+import { SettingComponent } from './../setting/setting.component';
 
 @Component({
   selector: 'app-header',
@@ -85,6 +86,10 @@ export class HeaderComponent implements OnInit {
 
   constructor() {
     this.userName.name = 'Willimar Augusto Rocha';
+  }
+
+  isLoged(): boolean {
+    return SettingComponent.logged;
   }
 
   ngOnInit(): void {

@@ -18,7 +18,7 @@
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#" data-toggle="control-sidebar"  style="padding: 6px;">
+          <a *ngIf="isLoged()" href="#" data-toggle="control-sidebar"  style="padding: 6px;">
             <i class="fa fa-gears"></i>
           </a>
         </li>
