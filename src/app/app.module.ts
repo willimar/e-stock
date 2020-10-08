@@ -33,9 +33,9 @@ import { BoxSuccessComponent } from './components/controls/box-success/box-succe
 import { ModalComponent } from './components/controls/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ForgotPasswordComponent } from './layout/forgot-password/forgot-password.component';
-import { UserSettingComponent } from './components/controls/settings/user-setting/user-setting.component';
-import { GeneralSettingComponent } from './components/controls/settings/general-setting/general-setting.component';
-import { SystemSettingComponent } from './components/controls/settings/system-setting/system-setting.component';
+import { UserSettingComponent } from './layout/shared/setting/tabs/user-setting/user-setting.component';
+import { GeneralSettingComponent } from './layout/shared/setting/tabs/general-setting/general-setting.component';
+import { SystemSettingComponent } from './layout/shared/setting/tabs/system-setting/system-setting.component';
 
 @NgModule({
   declarations: [
