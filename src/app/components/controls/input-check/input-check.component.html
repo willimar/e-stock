@@ -1,11 +1,11 @@
 <div class="form-group" [class.has-success]="hasSuccess()"
                         [class.has-error]="hasError()">
-
+                        <br/>
   <div class="input-group" style="padding-top:10px;">
-    <br/>
+
     <ng-content></ng-content>
     &nbsp;
-    <label style="padding-top:-1px;">
+    <label style="padding-top:5px;">
         <span>
           <i class="fa fa-check" *ngIf="hasSuccess()"> {{caption}}</i>
           <i class="fa fa-remove" *ngIf="hasError()"> {{caption}}</i>

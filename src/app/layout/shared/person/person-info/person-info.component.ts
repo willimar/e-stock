@@ -11,6 +11,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Person } from '../../../../models/registers/person';
 import { FormBaseComponent } from '../../../../components/controls/form-base.component';
 import { Guid } from '../../../../models/shared/guid';
+import { Translate } from '../../../../locales/translate';
+import { PersonInfoComponentHtml } from '../../../../locales/translations/person-info.component.html';
 
 @Component({
   selector: 'app-person-info',
@@ -21,6 +23,8 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
 
   cities: ISelect[] = [];
   states: ISelect[] = [];
+
+  translate: Translate = new Translate(new PersonInfoComponentHtml);
 
   constructor(public formBuilder: FormBuilder, private http: HttpClient) {
     super();

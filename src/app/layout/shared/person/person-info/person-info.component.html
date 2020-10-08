@@ -2,73 +2,106 @@
   <div class="row">
     <div class="col-sm-4">
       <app-input
-            [caption]="'Full name'"
+            [caption]="translate.getString('full-name')"
             [name]="'name'"
-            [required]="true"
-            [errorMessage]="'Name is required with min 10 caracters.'">
-            <input type="text" class="form-control" placeholder="Input your full name..." formControlName="name" autocomplete="off" [value]="service.entity.personInfo.name" (change)="savePerson(formGroupRules.value)">
+            [required]="true">
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('full-name-message')}}"
+            formControlName="name" autocomplete="off"
+            [value]="service.entity.personInfo.name" (change)="savePerson(formGroupRules.value)">
 
       </app-input>
     </div>
     <div class="col-sm-3">
         <app-input-date
-                  [caption]="'Birth'"
+                  [caption]="translate.getString('birth')"
                   [name]="'birthDay'"
                   [required]="true">
-                  <input type="date" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" formControlName="birthDay" data-mask="" [value]="service.entity.personInfo.birthDay" (change)="savePerson(formGroupRules.value)">
+                  <input type="date" class="form-control"
+                    data-inputmask="'alias': 'mm/dd/yyyy'" formControlName="birthDay"
+                    data-mask="" [value]="service.entity.personInfo.birthDay"
+                    (change)="savePerson(formGroupRules.value)">
         </app-input-date>
     </div>
     <div class="col-sm-3">
         <app-input
-                  [caption]="'Nick name'"
+                  [caption]="translate.getString('nick-name')"
                   [name]="'nickName'"
-                  [required]="false"
-                  [errorMessage]="'Your nick name.'">
-                  <input type="text" class="form-control" placeholder="Your nick name..." formControlName="nickName" autocomplete="off" [value]="service.entity.personInfo.nickName" (change)="savePerson(formGroupRules.value)">
+                  [required]="false">
+                  <input type="text" class="form-control"
+                    placeholder="{{translate.getString('nick-name-message')}}"
+                    formControlName="nickName" autocomplete="off"
+                    [value]="service.entity.personInfo.nickName"
+                    (change)="savePerson(formGroupRules.value)">
         </app-input>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-3">
         <app-input
-                [caption]="'Birth state'"
+                [caption]="translate.getString('birth-state')"
                 [name]="'state'"
                 [required]="true"
                 [style]="''"> <br/>
-                <ng-select2 [width] = "'inherit'" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getStates()" [formControlName]="'birthState'" [placeholder]="'Select a state...'" [value]="service.entity.personInfo.birthState"  (valueChanged)="setBirthState($event)"> </ng-select2>
+                <ng-select2 [width] = "'inherit'"
+                  [style]="'padding:3px 3px; border:0px;'"
+                  [class]="'form-control'" [data]="getStates()"
+                  [formControlName]="'birthState'" [placeholder]="translate.getString('birth-state-message')"
+                  [value]="service.entity.personInfo.birthState"
+                  (valueChanged)="setBirthState($event)"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-3">
         <app-input
-                [caption]="'Birth city'"
+                [caption]="translate.getString('birth-city')"
                 [name]="'birthCity'"
                 [required]="true"> <br/>
-                <ng-select2 [width] = "'inherit'" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getCities()" [formControlName]="'birthCity'" [placeholder]="'Select a city...'" [value]="service.entity.personInfo.birthCity" (valueChanged)="setBirthCity($event)"> </ng-select2>
+                <ng-select2 [width] = "'inherit'"
+                  [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'"
+                  [data]="getCities()" [formControlName]="'birthCity'"
+                  [placeholder]="translate.getString('birth-city-message')"
+                  [value]="service.entity.personInfo.birthCity"
+                  (valueChanged)="setBirthCity($event)"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-2">
         <app-input
-                [caption]="'Gender'"
+                [caption]="translate.getString('gender')"
                 [name]="'gender'"
                 [required]="true">
-                <ng-select2 [width] = "'inherit'" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getGenders()" [formControlName]="'gender'" [placeholder]="'Select a gender...'" [value]="service.entity.personInfo.gender"  (valueChanged)="savePerson(formGroupRules.value)"> </ng-select2>
+                <ng-select2 [width] = "'inherit'"
+                  [style]="'padding:3px 3px; border:0px;'"
+                  [class]="'form-control'" [data]="getGenders()"
+                  [formControlName]="'gender'"
+                  [placeholder]="translate.getString('gender-message')"
+                  [value]="service.entity.personInfo.gender"
+                  (valueChanged)="savePerson(formGroupRules.value)"> </ng-select2>
 
         </app-input>
     </div>
     <div class="col-sm-2">
         <app-input
-                [caption]="'Marital status'"
+                [caption]="translate.getString('marital-status')"
                 [name]="'maritalStatus'"
                 [required]="true">
-                <ng-select2 [width] = "'inherit'" [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'" [data]="getMaritalStatus()" [formControlName]="'maritalStatus'" [placeholder]="'Select a marital status...'" [value]="service.entity.personInfo.maritalStatus"  (valueChanged)="savePerson(formGroupRules.value)"> </ng-select2>
+                <ng-select2 [width] = "'inherit'"
+                  [style]="'padding:3px 3px; border:0px;'"
+                  [class]="'form-control'" [data]="getMaritalStatus()"
+                  [formControlName]="'maritalStatus'"
+                  [placeholder]="translate.getString('marital-status-message')"
+                  [value]="service.entity.personInfo.maritalStatus"
+                  (valueChanged)="savePerson(formGroupRules.value)"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-2">
         <app-input-check
-                [caption]="'Special needs'"
+                [caption]="translate.getString('special-needs')"
                 [name]="'specialNeeds'"
                 [required]="false">
-                <input type="checkbox" formControlName="specialNeeds"  [value]="service.entity.personInfo.specialNeeds" (change)="savePerson(formGroupRules.value)">
+                <input type="checkbox"
+                  formControlName="specialNeeds"
+                  [value]="service.entity.personInfo.specialNeeds"
+                  (change)="savePerson(formGroupRules.value)">
         </app-input-check>
     </div>
   </div>
