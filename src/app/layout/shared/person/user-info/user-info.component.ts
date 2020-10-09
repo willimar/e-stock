@@ -6,6 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Person } from '../../../../models/registers/person';
 import { FormBaseComponent } from '../../../../components/controls/form-base.component';
 import { EMPTY } from 'rxjs';
+import { Translate } from '../../../../locales/translate';
+import { UserInfoComponentHtml } from '../../../../locales/translations/user-info.component.html';
 
 @Component({
   selector: 'app-user-info',
@@ -15,6 +17,8 @@ import { EMPTY } from 'rxjs';
 export class UserInfoComponent extends FormBaseComponent<Person> implements OnInit {
 
   @Input() personService: PersonService;
+
+  translate = new Translate(new UserInfoComponentHtml());
 
   static equalTo(): {[key: string]: boolean} {
     return undefined;
