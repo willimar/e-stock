@@ -17,7 +17,7 @@ import { PersonInfoComponentHtml } from '../../../../locales/translations/person
 @Component({
   selector: 'app-person-info',
   templateUrl: './person-info.component.html',
-  styleUrls: []
+  styleUrls: ['person-info.component.css']
 })
 export class PersonInfoComponent extends FormBaseComponent<Person> implements OnInit {
 

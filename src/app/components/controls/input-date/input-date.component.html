@@ -7,10 +7,10 @@
         <i class="fa" *ngIf="!hasSuccess() && !hasError()"> {{caption}}<span *ngIf="required"> *</span></i>
       </span>
   </label>
-  <div class="input-group">
-    <div class="input-group-addon">
-      <i class="fa fa-calendar"></i>
-    </div>
+  <div class="input-group date" id="" data-target-input="nearest">
     <ng-content></ng-content>
+    <div class="input-group-append" data-toggle="datetimepicker">
+        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+    </div>
   </div>
 </div>

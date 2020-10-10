@@ -15,7 +15,7 @@ export class BoxComponent implements OnInit {
   constructor() {
     this.boxTitle = '';
     this.useMinimize = false;
-    this.boxClass = 'box-default';
+    this.boxClass = 'card';
   }
 
   ngOnInit(): void {

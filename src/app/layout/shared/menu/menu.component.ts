@@ -12,29 +12,29 @@ export class MenuComponent implements OnInit {
 
   rootMenu: MenuDetail[] = [
     {
-      classImage: 'fa fa-list-alt',
+      classImage: 'nav-icon fa fa-list-alt',
       label: 'Register',
       actionRouter: 'register',
       menuItems: [
         {
-          classImage: 'fa fa-users',
+          classImage: 'nav-icon fa fa-users',
           label: 'People',
           actionRouter: 'people',
           menuItems:[
             {
-              classImage: 'fa fa-address-card',
+              classImage: 'nav-icon fa fa-address-card',
               label: 'Person type',
               actionRouter: 'person-type',
               menuItems:[]
             },
             {
-              classImage: 'fa fa-flag',
+              classImage: 'nav-icon fa fa-flag',
               label: 'Person gender',
               actionRouter: 'person-gender',
               menuItems:[]
             },
             {
-              classImage: 'fa fa-id-card-o',
+              classImage: 'nav-icon fas fa-user-friends',
               label: 'Person',
               actionRouter: 'person',
               menuItems:[]
@@ -42,30 +42,30 @@ export class MenuComponent implements OnInit {
           ]
         },
         {
-          classImage: 'fa fa-microchip',
+          classImage: 'nav-icon fa fa-microchip',
           label: 'Product',
           actionRouter: 'product',
           menuItems:[
             {
-              classImage: 'fa fa-cubes',
+              classImage: 'nav-icon fa fa-cubes',
               label: 'Feature',
               actionRouter: 'product-feature',
               menuItems:[]
             },
             {
-              classImage: 'fa fa-object-group',
+              classImage: 'nav-icon fa fa-object-group',
               label: 'Group',
               actionRouter: 'product-group',
               menuItems:[]
             },
             {
-              classImage: 'fa fa-object-group',
+              classImage: 'nav-icon fa fa-object-group',
               label: 'Sub group',
               actionRouter: 'product-sub-group',
               menuItems:[]
             },
             {
-              classImage: 'fa fa-archive',
+              classImage: 'nav-icon fa fa-archive',
               label: 'Product',
               actionRouter: 'product',
               menuItems:[]
@@ -73,36 +73,36 @@ export class MenuComponent implements OnInit {
           ]
         },
         {
-          classImage: 'fa fa-sitemap',
+          classImage: 'nav-icon fa fa-sitemap',
           label: 'Transaction',
           actionRouter: 'transaction',
           menuItems:[
             {
-              classImage: 'fa fa-plug',
+              classImage: 'nav-icon fa fa-plug',
               label: 'Purchase order',
               actionRouter: 'purchase-order',
               menuItems:[]
             },
             {
-              classImage: 'fa fa-shopping-cart',
+              classImage: 'nav-icon fa fa-shopping-cart',
               label: 'Sale order',
               actionRouter: 'sale-order',
               menuItems:[]
             },
             {
-              classImage: 'fa fa-check-square-o',
+              classImage: 'nav-icon fa fa-check-square-o',
               label: 'Product check in',
               actionRouter: 'product-check-in',
               menuItems:[]
             },
             {
-              classImage: 'fa fa-square-o',
+              classImage: 'nav-icon fa fa-square-o',
               label: 'Product check out',
               actionRouter: 'product-check-out',
               menuItems:[]
             },
             {
-              classImage: 'fa fa-credit-card',
+              classImage: 'nav-icon fa fa-credit-card',
               label: 'Chash flow',
               actionRouter: 'cash-flow',
               menuItems:[]
@@ -112,23 +112,23 @@ export class MenuComponent implements OnInit {
       ]
     },
     {
-      classImage: 'fa fa-share',
+      classImage: 'nav-icon fa fa-share',
       label: 'Report',
       actionRouter: 'report',
       menuItems: []
     },
     {
-      classImage: 'fa fa-question-circle-o',
+      classImage: 'nav-icon fas fa-question-circle',
       label: 'Help',
       actionRouter: 'help',
       menuItems: [
         {
-          classImage: 'fa fa-laptop',
+          classImage: 'nav-icon fa fa-laptop',
           label: 'System',
           actionRouter: 'system',
           menuItems:[
             {
-              classImage: 'fa fa-building-o',
+              classImage: 'nav-icon far fa-address-card',
               label: 'About',
               actionRouter: 'about',
               menuItems:[]
