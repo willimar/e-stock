@@ -1,0 +1,15 @@
+<a class="nav-link" data-toggle="dropdown" href="#">
+  <i class="far fa-flag"></i>
+</a>
+<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+  <span class="dropdown-item dropdown-header">Select your language</span>
+  <div class="dropdown-divider"></div>
+  <button class="dropdown-item" (click)="changeLocale('pt-BR')">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIhSURBVDhPnZTfS5NRHMYfyFJwWkzpxwZebCUTcTMdgzbnXNRFXvVXRDGIoK22qbSarVfRC+cvzDvDMqhZFLsroy6kLoIuIukmamkqCCJ5aafn7N32zoMRCJ+Xnef7fZ6dnR/vgGnv/lF1OVM+iVIsR9UlJjsaHrQTDtRWCVXrTPgtM+1iBcQy46ZUDTqqJuOdp+ecYgvid54ttM45WVRtRNVjge55h9iBNuCBpY8MDngoWWRLNRuj+16kuy5nbZztnuaGqR8nb0pq7w4NuVlkiwZpK0WM5EhQW7CINYhlwDpc40qgLoQT12ALw5wUG2BLW7DSZuSLybMPF+vkDn3HylIgOv9Kyz77/OtH4slTc9ttmHpePrbp+0cbzYW8/Jjs+PCpmhP++QaxjlifB8du4ehVHL5iP69lvr5r6B6Nxts4szQsg2Z5fgzKZ8qX+3JI5ArhRP8Z7lOVM36giWuOwBRKvXj7PHtR/MwbcqBZXh4ZLi74zccafit/WGa2EY7Bg83RypZYZUsc9us4nlx672eMBtqMZcunuOzZxXqxCgJT0uxJcObq1t6K5hjsIzK5ChqMBRvhQj6Yem0V24j0BnDkDhpv4FQEjnQ47mORrV1bTYwRYSPddYlHvYNQ+BxqUzzkUDhIyaJ6yGSX0BkLXMg0cSqxmWcblHtcL6JqnfFO1yOXvn4O9r7YRNUlJvyMyeS/Ximi6nL2/2fwX6a9fwHxepZOa4IEsgAAAABJRU5ErkJggg==" class="rounded-circle" width="20" height="20">
+    Brasileiro <i *ngIf="getLocale() === 'pt-BR'" class="fas fa-check mr-2"></i>
+  </button>
+  <button class="dropdown-item" (click)="changeLocale('en-US')">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVDhPY/D1rXZyLAIiX58qIIKwHYNadvHLrxXVwI8YIiNagoLqgwLr4mLbgQjICAqs9wxqetIz8UprP37EYGaamZbWl5LS4+NdBURABpArJxv+nwjAkJszCaItO2siEEHYSUWzt3FLrxFQwY8Y9PVS8vIm52RP9PKs9PKsyMmeBOTKqCXdK605k1eFHzEUFU4D6gGi3NzJQARhx8d1QF2GFzDoaCcVFkwF2ubpUQFEQAaQK6OVekTTbIuGJX7EUFIyA6ItP28KEEHYGSWzL4QnHglPwY9ANhfkT83LBdpcDkRABpArIhQAdRlewJCZOQFsW3lGeh8QgY2oiM2eesLWa4+9P37EEB3ZEhXRDERABpwdEN153NYTTSkmYoC6gCzAgBYGJCEGtNAnCVHmbLQURxJiWCOoQjaizNlo+ZskxIBWspCARDUAK2OkW0S0svAAAAAASUVORK5CYII=" class="rounded-circle" width="20" height="20">
+    English <i *ngIf="getLocale() === 'en-US'" class="fas fa-check mr-2"></i>
+  </button>
+</div>

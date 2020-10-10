@@ -5,11 +5,21 @@
     <span class="brand-text font-weight-light">-stock</span>
   </a>
 
+  <span class="brand-text font-weight-light">
+    <div class="row justify-content-end">
+      <div class="float-right" style="margin-right: 10px;">
+        <button type="button" class="btn btn-tool" data-widget="pushmenu" data-card-widget="collapse" data-toggle="tooltip"><i class="fa fa-minus"></i></button>
+      </div>
+    </div>
+  </span>
+
+
 
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <li class="header">{{translate.getString('header-menu')}}</li>
       <li class="nav-item has-treeview" *ngFor="let rootItem of rootMenu" >
         <a href="#" class="nav-link">
           <i class="{{rootItem.classImage}}"></i>

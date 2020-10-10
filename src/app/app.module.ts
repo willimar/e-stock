@@ -36,6 +36,7 @@ import { ForgotPasswordComponent } from './layout/forgot-password/forgot-passwor
 import { UserSettingComponent } from './layout/shared/setting/tabs/user-setting/user-setting.component';
 import { GeneralSettingComponent } from './layout/shared/setting/tabs/general-setting/general-setting.component';
 import { SystemSettingComponent } from './layout/shared/setting/tabs/system-setting/system-setting.component';
+import { LocaleComponent } from './layout/shared/header/locale/locale.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { SystemSettingComponent } from './layout/shared/setting/tabs/system-sett
     ForgotPasswordComponent,
     UserSettingComponent,
     GeneralSettingComponent,
-    SystemSettingComponent
+    SystemSettingComponent,
+    LocaleComponent
   ],
   imports: [
     BrowserModule,

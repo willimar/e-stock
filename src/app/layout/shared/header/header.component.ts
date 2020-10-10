@@ -97,11 +97,5 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getLocale(): Locale {
-    return SetupLocale.locale;
-  }
 
-  changeLocale(locale: any) {
-    SetupLocale.locale = locale;
-  }
 }
