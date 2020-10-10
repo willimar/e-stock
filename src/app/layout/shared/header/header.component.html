@@ -5,11 +5,117 @@
     <li class="nav-item">
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
-    <li class="nav-item d-none d-sm-inline-block">
-      <a href="index3.html" class="nav-link">Home</a>
+  </ul>
+
+  <ul class="navbar-nav ml-auto">
+    <!-- Messages Dropdown Menu -->
+    <li *ngIf="isLoged()" class="nav-item dropdown">
+      <a class="nav-link" data-toggle="dropdown" href="#">
+        <i class="far fa-comments"></i>
+        <span class="badge badge-danger navbar-badge">3</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <a href="#" class="dropdown-item">
+          <!-- Message Start -->
+          <div class="media">
+            <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+            <div class="media-body">
+              <h3 class="dropdown-item-title">
+                Brad Diesel
+                <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+              </h3>
+              <p class="text-sm">Call me whenever you can...</p>
+              <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+            </div>
+          </div>
+          <!-- Message End -->
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+          <!-- Message Start -->
+          <div class="media">
+            <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+            <div class="media-body">
+              <h3 class="dropdown-item-title">
+                John Pierce
+                <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+              </h3>
+              <p class="text-sm">I got your message bro</p>
+              <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+            </div>
+          </div>
+          <!-- Message End -->
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+          <!-- Message Start -->
+          <div class="media">
+            <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+            <div class="media-body">
+              <h3 class="dropdown-item-title">
+                Nora Silvester
+                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+              </h3>
+              <p class="text-sm">The subject goes here</p>
+              <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+            </div>
+          </div>
+          <!-- Message End -->
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+      </div>
     </li>
-    <li class="nav-item d-none d-sm-inline-block">
-      <a href="#" class="nav-link">Contact</a>
+    <!-- Notifications Dropdown Menu -->
+    <li *ngIf="isLoged()" class="nav-item dropdown">
+      <a class="nav-link" data-toggle="dropdown" href="#">
+        <i class="far fa-bell"></i>
+        <span class="badge badge-warning navbar-badge">15</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <span class="dropdown-item dropdown-header">15 Notifications</span>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+          <i class="fas fa-envelope mr-2"></i> 4 new messages
+          <span class="float-right text-muted text-sm">3 mins</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+          <i class="fas fa-users mr-2"></i> 8 friend requests
+          <span class="float-right text-muted text-sm">12 hours</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+          <i class="fas fa-file mr-2"></i> 3 new reports
+          <span class="float-right text-muted text-sm">2 days</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link" data-toggle="dropdown" href="#">
+        <i class="far fa-flag"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <span class="dropdown-item dropdown-header">Select your language</span>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item" (click)="changeLocale('pt-BR')">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIhSURBVDhPnZTfS5NRHMYfyFJwWkzpxwZebCUTcTMdgzbnXNRFXvVXRDGIoK22qbSarVfRC+cvzDvDMqhZFLsroy6kLoIuIukmamkqCCJ5aafn7N32zoMRCJ+Xnef7fZ6dnR/vgGnv/lF1OVM+iVIsR9UlJjsaHrQTDtRWCVXrTPgtM+1iBcQy46ZUDTqqJuOdp+ecYgvid54ttM45WVRtRNVjge55h9iBNuCBpY8MDngoWWRLNRuj+16kuy5nbZztnuaGqR8nb0pq7w4NuVlkiwZpK0WM5EhQW7CINYhlwDpc40qgLoQT12ALw5wUG2BLW7DSZuSLybMPF+vkDn3HylIgOv9Kyz77/OtH4slTc9ttmHpePrbp+0cbzYW8/Jjs+PCpmhP++QaxjlifB8du4ehVHL5iP69lvr5r6B6Nxts4szQsg2Z5fgzKZ8qX+3JI5ArhRP8Z7lOVM36giWuOwBRKvXj7PHtR/MwbcqBZXh4ZLi74zccafit/WGa2EY7Bg83RypZYZUsc9us4nlx672eMBtqMZcunuOzZxXqxCgJT0uxJcObq1t6K5hjsIzK5ChqMBRvhQj6Yem0V24j0BnDkDhpv4FQEjnQ47mORrV1bTYwRYSPddYlHvYNQ+BxqUzzkUDhIyaJ6yGSX0BkLXMg0cSqxmWcblHtcL6JqnfFO1yOXvn4O9r7YRNUlJvyMyeS/Ximi6nL2/2fwX6a9fwHxepZOa4IEsgAAAABJRU5ErkJggg==" class="rounded-circle" width="20" height="20">
+          Brasileiro <i *ngIf="getLocale() === 'pt-BR'" class="fas fa-check mr-2"></i>
+        </button>
+        <button class="dropdown-item" (click)="changeLocale('en-US')">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVDhPY/D1rXZyLAIiX58qIIKwHYNadvHLrxXVwI8YIiNagoLqgwLr4mLbgQjICAqs9wxqetIz8UprP37EYGaamZbWl5LS4+NdBURABpArJxv+nwjAkJszCaItO2siEEHYSUWzt3FLrxFQwY8Y9PVS8vIm52RP9PKs9PKsyMmeBOTKqCXdK605k1eFHzEUFU4D6gGi3NzJQARhx8d1QF2GFzDoaCcVFkwF2ubpUQFEQAaQK6OVekTTbIuGJX7EUFIyA6ItP28KEEHYGSWzL4QnHglPwY9ANhfkT83LBdpcDkRABpArIhQAdRlewJCZOQFsW3lGeh8QgY2oiM2eesLWa4+9P37EEB3ZEhXRDERABpwdEN153NYTTSkmYoC6gCzAgBYGJCEGtNAnCVHmbLQURxJiWCOoQjaizNlo+ZskxIBWspCARDUAK2OkW0S0svAAAAAASUVORK5CYII=" class="rounded-circle" width="20" height="20">
+          English <i *ngIf="getLocale() === 'en-US'" class="fas fa-check mr-2"></i>
+        </button>
+      </div>
+
+    </li>
+    <li *ngIf="isLoged()" class="nav-item">
+      <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+        <i class="fas fa-th-large"></i>
+      </a>
     </li>
   </ul>
 

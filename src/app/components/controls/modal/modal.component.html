@@ -1,6 +1,6 @@
-<div class="modal {{modalType}} fade" id="{{modalName}}">
+<div class="modal fade" id="{{modalName}}">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content {{modalType}}">
       <div class="modal-header">
         <h4 class="modal-title">{{modalTitle}}</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -10,8 +10,8 @@
       <div class="modal-body">
         <ng-content></ng-content>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
       </div>
     </div>
     <!-- /.modal-content -->

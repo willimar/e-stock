@@ -4,6 +4,8 @@ import { Notification } from './../../../models/layout/header/Notification';
 import { Message } from './../../../models/layout/header/Message';
 import { Component, OnInit } from '@angular/core';
 import { SettingComponent } from './../setting/setting.component';
+import { SetupLocale } from '../../../locales/setup-locale';
+import { Locale } from '../../../locales/locales';
 
 @Component({
   selector: 'app-header',
@@ -95,4 +97,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getLocale(): Locale {
+    return SetupLocale.locale;
+  }
+
+  changeLocale(locale: any) {
+    SetupLocale.locale = locale;
+  }
 }

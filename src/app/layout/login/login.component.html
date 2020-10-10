@@ -1,10 +1,10 @@
-<app-modal [modalName]="'login-error'" [modalType]="'modal-danger'" [modalTitle]="translate.getString('access-danied')">
+<app-modal [modalName]="'login-error'" [modalType]="'bg-danger'" [modalTitle]="translate.getString('access-danied')">
   <ul>
     <li *ngFor="let item of getErrors()">{{item.boxText}}</li>
   </ul>
 </app-modal>
 
-<app-modal [modalName]="'modal-info'" [modalType]="'modal-success'" [modalTitle]="translate.getString('system-access')">
+<app-modal [modalName]="'modal-info'" [modalType]="'bg-success'" [modalTitle]="translate.getString('system-access')">
   <ul>
     <li>{{translate.getString("loged-message")}}</li>
   </ul>

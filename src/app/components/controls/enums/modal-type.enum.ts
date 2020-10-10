@@ -1,8 +1,9 @@
 export enum ModalType {
-  danger = "modal-danger",
-  success = "modal-success",
-  warning = "modal-warning",
-  info = "modal-info",
-  primary = "modal-primary",
+  danger = "bg-danger",
+  success = "bg-success",
+  warning = "bg-warning",
+  info = "bg-info",
+  primary = "bg-primary",
+  secundary = "bg-secondary",
   none = ""
 }
