@@ -4,7 +4,7 @@
   </ul>
 </app-modal>
 
-<section style="margin-left: 5px; margin-right: 5px; margin-top: 2px;  margin-bottom: 2px;">
+<section style="margin-left: 5px; margin-right: 10px; margin-top: 2px;  margin-bottom: 2px;">
   <form role="form" [formGroup]="formGroupRules">
     <app-box
       [boxTitle]="translate.getString('header-person-info')"
@@ -16,12 +16,10 @@
       [useMinimize]="true">
       <app-user-info [service]="service"></app-user-info>
     </app-box>
-    <div class="box" style="background-color: inherit; border: 0px;">
-      <div class="row justify-content-end">
-        <div class="col-sm-1" style="margin-right: 10px;">
-          <button class="btn btn-primary" style="width: 120px;"
-            (click)="submit($event)" [disabled]="!isValid()">{{translate.getString('save')}}</button>
-        </div>
+    <div class="row justify-content-end">
+      <div class="float-right" style="margin-right: 10px;">
+        <button class="btn btn-primary" style="width: 120px;"
+          (click)="submit($event)" [disabled]="!isValid()">{{translate.getString('save')}}</button>
       </div>
     </div>
   </form>
