@@ -2,7 +2,7 @@ import { BaseService } from './../../services/shared/base.service';
 import { IColumnDef } from './../interfaces/icolumn-def';
 import { Status } from './../../models/enums/status.enum';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Output, Injectable, Input, Component } from '@angular/core';
+import { Input, Component } from '@angular/core';
 import { StatusService } from '../../services/enums/status-service.enum';
 
 declare var $: any;
