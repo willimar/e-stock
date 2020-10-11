@@ -21,6 +21,8 @@ export class FormBaseComponent<TEntity> {
   public static postalCodeFormat = /^([0-9]{5}-[0-9]{3})|([0-9]{5})|([0-9]{4}-[0-9]{4})|([a-zA-Z]{1}[0-9]{1}[a-zA-Z]{1} [0-9]{1}[a-zA-Z]{1}[0-9]{1})/;
 
   @Input() service: BaseService<TEntity> = null;
+  @Input() height: number = window.innerHeight;
+
   public formGroupRules: FormGroup;
   public formBuilder: FormBuilder;
   private status = Status;

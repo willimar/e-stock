@@ -95,16 +95,19 @@
                   (valueChanged)="savePerson(formGroupRules.value)"> </ng-select2>
         </app-input>
     </div>
-    <div class="col-sm-2">
-        <app-input-check
-                [caption]="translate.getString('special-needs')"
-                [name]="'specialNeeds'"
-                [required]="false">
-                <input type="checkbox"
-                  formControlName="specialNeeds"
-                  [value]="service.entity.personInfo.specialNeeds"
-                  (change)="savePerson(formGroupRules.value)">
-        </app-input-check>
-    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <app-input-check
+              [caption]="translate.getString('special-needs')"
+              [name]="'specialNeeds'"
+              [required]="false">
+              <input type="checkbox"
+                formControlName="specialNeeds"
+                [value]="service.entity.personInfo.specialNeeds"
+                (change)="savePerson(formGroupRules.value)">
+      </app-input-check>
+  </div>
   </div>
 </form>

@@ -37,6 +37,7 @@ import { UserSettingComponent } from './layout/shared/setting/tabs/user-setting/
 import { GeneralSettingComponent } from './layout/shared/setting/tabs/general-setting/general-setting.component';
 import { SystemSettingComponent } from './layout/shared/setting/tabs/system-setting/system-setting.component';
 import { LocaleComponent } from './layout/shared/header/locale/locale.component';
+import { ButtonPannelComponent } from './components/controls/button-pannel/button-pannel.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { LocaleComponent } from './layout/shared/header/locale/locale.component'
     UserSettingComponent,
     GeneralSettingComponent,
     SystemSettingComponent,
-    LocaleComponent
+    LocaleComponent,
+    ButtonPannelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,36 @@
-<p>person works!</p>
+<section class="content-wrap" style="margin-left: 5px; margin-right: 10px; margin-top: 2px;  margin-bottom: 2px;">
+  <app-button-pannel></app-button-pannel>
 
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-info">
-  Launch Default Modal
-</button>
-
-<app-modal
-  modalName="modal-info"
-  modalType="modal-info"
-  modalTitle="Modal para testes.">
-  <ul>
-    <li>teste 1</li>
-    <li>teste 2</li>
-    <li>teste 3</li>
-  </ul>
-</app-modal>
+  <div class="col-sm-12" [style]="'height: ' + (height - 208) + 'px;'">
+    <div class="card card-primary card-tabs" style="height: 100%;">
+      <div class="card-header p-0 pt-1" style="background-color: #3c8dbc;">
+        <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
+          <li class="pt-2 px-3"><h3 class="card-title">{{translate.getString('tab-title')}}</h3></li>
+          <li class="nav-item">
+            <a class="nav-link" id="person-info-tab" data-toggle="pill" href="#person-info" role="tab" aria-controls="person-info" aria-selected="false">{{translate.getString('person-info-tab')}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="person-access-tab" data-toggle="pill" href="#person-access" role="tab" aria-controls="person-access" aria-selected="false">{{translate.getString('person-access-tab')}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="person-dependents-tab" data-toggle="pill" href="#person-dependents" role="tab" aria-controls="person-dependents" aria-selected="false">{{translate.getString('person-dependents-tab')}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="tab-content" id="custom-tabs-two-tabContent">
+          <div class="tab-pane fade" id="person-info" role="tabpanel" aria-labelledby="person-info-tab">
+            <app-person-info [service]="service"></app-person-info>
+          </div>
+          <div class="tab-pane fade" id="person-access" role="tabpanel" aria-labelledby="person-access">
+             <app-user-info [service]="service"></app-user-info>
+          </div>
+          <div class="tab-pane fade" id="person-dependents" role="tabpanel" aria-labelledby="person-dependents-tab">
+             Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+          </div>
+        </div>
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+</section>
