@@ -1,7 +1,7 @@
 export enum ContactType {
-  phone = '0',
-    celphone = '1',
-    email = '2',
-    blog = '3',
-    website = '4'
+  phone = '1',
+  celphone = '2',
+  email = '3',
+  blog = '4',
+  website = '5'
 }

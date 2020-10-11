@@ -90,7 +90,7 @@ export class BaseService<TEntity> {
     $('#modal-info').modal('show');
   }
 
-  protected getCollectionIndex(collection: BaseModel[], id: Guid): number {
+  public getCollectionIndex(collection: BaseModel[], id: Guid): number {
       let idx = -1;
       let result = -1;
 
@@ -104,7 +104,7 @@ export class BaseService<TEntity> {
       return result;
   }
 
-  protected generateDefaultValues(value: BaseModel): void {
+  public generateDefaultValues(value: BaseModel): void {
       value.lastChageDate = new Date();
 
       if (!value.id) {

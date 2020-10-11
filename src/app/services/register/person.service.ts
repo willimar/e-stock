@@ -24,21 +24,6 @@ export class PersonService extends BaseService<Person> {
       this.controller = 'Account/Append';
   }
 
-  addContactItem(contact: PersonalContact): void {
-      this.generateDefaultValues(contact);
-      this.entity.personalContacts.push(contact);
-  }
-
-  removeContactItem(contact: PersonalContact): void {
-      const idx: number = this.getCollectionIndex(this.entity.personalContacts, contact.id);
-
-      if (idx >= 0) {
-          this.entity.personalContacts[idx].status = Status.deleted;
-      } else {
-          console.log('Contact not found.');
-      }
-  }
-
   addAddressItem(address: Address): void {
     this.generateDefaultValues(address);
     this.entity.addresses.push(address);

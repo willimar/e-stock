@@ -38,6 +38,8 @@ import { GeneralSettingComponent } from './layout/shared/setting/tabs/general-se
 import { SystemSettingComponent } from './layout/shared/setting/tabs/system-setting/system-setting.component';
 import { LocaleComponent } from './layout/shared/header/locale/locale.component';
 import { ButtonPannelComponent } from './components/controls/button-pannel/button-pannel.component';
+import { ContactListComponent } from './layout/shared/person/contact-list/contact-list.component';
+import { ContactItemComponent } from './layout/shared/person/contact-list/contact-item/contact-item.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { ButtonPannelComponent } from './components/controls/button-pannel/butto
     GeneralSettingComponent,
     SystemSettingComponent,
     LocaleComponent,
-    ButtonPannelComponent
+    ButtonPannelComponent,
+    ContactListComponent,
+    ContactItemComponent
   ],
   imports: [
     BrowserModule,

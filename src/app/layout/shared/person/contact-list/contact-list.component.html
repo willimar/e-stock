@@ -1,0 +1,53 @@
+<form role="form" [formGroup]="formGroupRules">
+  <input id="id" name="id" type="hidden">
+  <div class="row">
+    <div class="col-sm-2">
+      <app-input
+            [caption]="translate.getString('contact-type')"
+            [name]="'contactType'"
+            [required]="false">
+
+            <ng-select2 [width] = "'inherit'"
+                  [style]="'padding:3px 3px; border:0px;'"
+                  [class]="'form-control'" [data]="getTypes()"
+                  [formControlName]="'contactType'" [placeholder]="translate.getString('contact-type-message')"
+                  [value]="2"> </ng-select2>
+
+      </app-input>
+    </div>
+    <div class="col-sm-4">
+      <app-input
+            [caption]="translate.getString('contact-value')"
+            [name]="'value'"
+            [required]="false">
+
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('contact-value-message')}}"
+            formControlName="value" autocomplete="off">
+      </app-input>
+    </div>
+    <div class="col-sm-1">
+      <button type="button"
+        class="btn btn-block bg-gradient-info btn-lg"
+        style="width: 68px; height: 68px;"
+        (click)="addItem($event)"
+        [disabled]="!isValid()">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div>
+</form>
+<div [style]="'height: ' + (height - 365) + 'px; overflow-y: scroll; overflow-x: hidden;'">
+  <div class="row">
+    <div class="col-md-4"
+      *ngFor="let item of service.getList(service.entity.personalContacts, 0)">
+        <app-contact-item
+              [item]="item"
+              [service]="service"
+              [translate]="translate"
+              [formGroup]="formGroupRules">
+
+        </app-contact-item>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,11 @@
-<section class="content-wrap" style="margin-left: 5px; margin-right: 10px; margin-top: 2px;  margin-bottom: 2px;">
-  <app-button-pannel></app-button-pannel>
+<app-modal [modalName]="'modal-error'" [modalType]="'bg-danger'" [modalTitle]="'Error.'">
+  <ul>
+    <li *ngFor="let item of getErrors()">{{item.boxText}}</li>
+  </ul>
+</app-modal>
 
-  <div class="col-sm-12" [style]="'height: ' + (height - 208) + 'px;'">
+<section class="content-wrap" style="margin-left: 5px; margin-right: 10px; margin-top: 2px;  margin-bottom: 2px;">
+  <div class="col-sm-12" [style]="'height: ' + (height - 194) + 'px;'">
     <div class="card card-primary card-tabs" style="height: 100%;">
       <div class="card-header p-0 pt-1" style="background-color: #3c8dbc;">
         <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
@@ -15,6 +19,9 @@
           <li class="nav-item">
             <a class="nav-link" id="person-dependents-tab" data-toggle="pill" href="#person-dependents" role="tab" aria-controls="person-dependents" aria-selected="false">{{translate.getString('person-dependents-tab')}}</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" id="person-contact-tab" data-toggle="pill" href="#person-contact" role="tab" aria-controls="person-contact" aria-selected="false">{{translate.getString('person-contact-tab')}}</a>
+          </li>
         </ul>
       </div>
       <div class="card-body">
@@ -23,7 +30,10 @@
             <app-person-info [service]="service"></app-person-info>
           </div>
           <div class="tab-pane fade" id="person-access" role="tabpanel" aria-labelledby="person-access">
-             <app-user-info [service]="service"></app-user-info>
+            <app-user-info [service]="service"></app-user-info>
+         </div>
+         <div class="tab-pane fade" id="person-contact" role="tabpanel" aria-labelledby="person-contact-tab">
+            <app-contact-list [service]="service"></app-contact-list>
           </div>
           <div class="tab-pane fade" id="person-dependents" role="tabpanel" aria-labelledby="person-dependents-tab">
              Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
@@ -33,4 +43,5 @@
       <!-- /.card -->
     </div>
   </div>
+  <app-button-pannel></app-button-pannel>
 </section>
