@@ -18,7 +18,6 @@ import { UserComponent } from './layout/register/user/user.component';
 import { LoginComponent } from './layout/login/login.component';
 import { BoxComponent } from './components/controls/box/box.component';
 import { BoxErrorComponent } from './components/controls/box-error/box-error.component';
-import { ButtonComponent } from './components/controls/button/button.component';
 import { GridControlComponent } from './components/controls/grid-control/grid-control.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { InputComponent } from './components/controls/input/input.component';
@@ -56,7 +55,6 @@ import { ContactItemComponent } from './layout/shared/person/contact-list/contac
     LoginComponent,
     BoxComponent,
     BoxErrorComponent,
-    ButtonComponent,
     GridControlComponent,
     InputComponent,
     InputCheckComponent,

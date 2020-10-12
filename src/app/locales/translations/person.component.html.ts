@@ -13,5 +13,9 @@ export class PersonComponentHtml implements ITranslate {
     [`person-dependents-tab-${Locale.ptBR}`]: "Dependentes",
     [`person-contact-tab-${Locale.enUs}`]: "Contacts",
     [`person-contact-tab-${Locale.ptBR}`]: "Contatos",
+    [`person-address-tab-${Locale.enUs}`]: "Adderess",
+    [`person-address-tab-${Locale.ptBR}`]: "Endereços",
+    [`person-document-tab-${Locale.enUs}`]: "Documents",
+    [`person-document-tab-${Locale.ptBR}`]: "Documentos",
   };
 }

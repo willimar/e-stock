@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { from } from 'rxjs';
+import { Translate } from '../../../locales/translate';
+import { ButtonPannelTranslate } from './button-pannel.translate';
 
 @Component({
   selector: 'app-button-pannel',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: []
 })
 export class ButtonPannelComponent implements OnInit {
+
+  translate: Translate = new Translate(new ButtonPannelTranslate());
 
   constructor() { }
 

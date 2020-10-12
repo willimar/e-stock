@@ -83,9 +83,9 @@ export class ContactListComponent extends FormBaseComponent<Person> implements O
     const result = [];
 
     result.push({id: ContactType.blog, text: "Blog"});
-    result.push({id: ContactType.celphone, text: "Celphone"});
+    result.push({id: ContactType.celphone, text: this.translate.getString('celphone')});
     result.push({id: ContactType.email, text: "E-mail"});
-    result.push({id: ContactType.phone, text: "Phone"});
+    result.push({id: ContactType.phone, text: this.translate.getString('phone')});
     result.push({id: ContactType.website, text: "Website"});
 
     return result;
