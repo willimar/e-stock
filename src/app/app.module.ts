@@ -41,6 +41,8 @@ import { ContactListComponent } from './layout/shared/person/contact-list/contac
 import { ContactItemComponent } from './layout/shared/person/contact-list/contact-item/contact-item.component';
 import { AddressListComponent } from './layout/shared/person/address-list/address-list.component';
 import { AddressItemComponent } from './layout/shared/person/address-list/address-item/address-item.component';
+import { DocumentListComponent } from './layout/shared/person/document-list/document-list.component';
+import { DocumentItemComponent } from './layout/shared/person/document-list/document-item/document-item.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { AddressItemComponent } from './layout/shared/person/address-list/addres
     ContactListComponent,
     ContactItemComponent,
     AddressListComponent,
-    AddressItemComponent
+    AddressItemComponent,
+    DocumentListComponent,
+    DocumentItemComponent
   ],
   imports: [
     BrowserModule,

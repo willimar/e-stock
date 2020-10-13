@@ -1,0 +1,25 @@
+<div class="toast fade show">
+  <div class="toast-header">
+    <strong class="mr-auto">&nbsp;</strong>
+    <small><b>{{translate.getString('name')}}: </b>{{translate.getString(item.name)}}</small>
+  </div>
+  <div class="toast-body">
+    <p>
+      <b>{{translate.getString('value')}}: </b>{{item.value}}
+    </p>
+    <p>
+      <b>{{translate.getString('emission-date')}}: </b>{{ item.emissionDate | date: translate.getString('emission-date-format') }}
+    </p>
+    <p>
+      <b>{{translate.getString('complement')}}: </b>{{item.complement}}
+    </p>
+  </div>
+  <div class="toast-footer">
+    <div class="row justify-content-end">
+      <div class="float-right" style="margin-right: 3px;">
+        <button type="button" class="btn btn-box-tool" (click)="change(item.id)"><i class="far fa-edit"></i></button>
+        <button type="button" class="btn btn-box-tool" (click)="remove(item.id)"><i class="far fa-trash-alt"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

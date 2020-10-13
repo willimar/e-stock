@@ -1,0 +1,75 @@
+<form role="form" [formGroup]="formGroupRules">
+  <input id="id" name="id" type="hidden">
+  <div class="row">
+    <div class="col-sm-2">
+      <app-input
+            [caption]="translate.getString('name')"
+            [name]="'c'"
+            [required]="false">
+
+            <ng-select2 [width] = "'inherit'"
+                  [style]="'padding:3px 3px; border:0px;'"
+                  [class]="'form-control'" [data]="getTypes()"
+                  [formControlName]="'name'" [placeholder]="translate.getString('name-message')"
+                  [value]="2"> </ng-select2>
+      </app-input>
+    </div>
+    <div class="col-sm-2">
+      <app-input
+            [caption]="translate.getString('value')"
+            [name]="'value'"
+            [required]="false">
+
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('value-message')}}"
+            formControlName="value" autocomplete="off">
+      </app-input>
+    </div>
+    <div class="col-sm-2">
+      <app-input-date
+            [caption]="translate.getString('emission-date')"
+            [name]="'emissionDate'"
+            [required]="false">
+
+            <input type="date" class="form-control"
+                    data-inputmask="'alias': 'mm/dd/yyyy'" formControlName="emissionDate"
+                    data-mask="" >
+      </app-input-date>
+    </div>
+    <div class="col-sm-3">
+      <app-input
+            [caption]="translate.getString('complement')"
+            [name]="'complement'"
+            [required]="false">
+
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('complement-message')}}"
+            formControlName="complement" autocomplete="off">
+      </app-input>
+    </div>
+    <div class="col-sm-1">
+      <button type="button"
+        class="btn btn-block bg-gradient-info btn-lg"
+        style="width: 68px; height: 68px;"
+        (click)="addItem($event)"
+        [disabled]="!isValid()">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div>
+
+</form>
+<div [style]="'height: ' + (height - 365) + 'px; overflow-y: scroll; overflow-x: hidden;'">
+  <div class="row">
+    <div class="col-md-4"
+      *ngFor="let item of service.getList(service.entity.documents, 0)">
+        <app-document-item
+              [item]="item"
+              [service]="service"
+              [translate]="translate"
+              [formGroup]="formGroupRules">
+
+        </app-document-item>
+    </div>
+  </div>
+</div>

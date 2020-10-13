@@ -13,6 +13,8 @@ export class ButtonPannelTranslate implements ITranslate {
     [`delete-${Locale.ptBR}`]: "Escluir",
     [`search-${Locale.enUs}`]: "Search",
     [`search-${Locale.ptBR}`]: "Localizar",
+    [`cancel-${Locale.enUs}`]: "Cancel",
+    [`cancel-${Locale.ptBR}`]: "Cancelar",
 
   };
 }
