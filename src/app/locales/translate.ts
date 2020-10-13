@@ -2,6 +2,7 @@ import { ITranslate } from "./itranslate";
 import { SetupLocale } from "./setup-locale";
 
 export class Translate {
+
   constructor(private translator: ITranslate)
   {
 

@@ -39,6 +39,8 @@ import { LocaleComponent } from './layout/shared/header/locale/locale.component'
 import { ButtonPannelComponent } from './components/controls/button-pannel/button-pannel.component';
 import { ContactListComponent } from './layout/shared/person/contact-list/contact-list.component';
 import { ContactItemComponent } from './layout/shared/person/contact-list/contact-item/contact-item.component';
+import { AddressListComponent } from './layout/shared/person/address-list/address-list.component';
+import { AddressItemComponent } from './layout/shared/person/address-list/address-item/address-item.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { ContactItemComponent } from './layout/shared/person/contact-list/contac
     LocaleComponent,
     ButtonPannelComponent,
     ContactListComponent,
-    ContactItemComponent
+    ContactItemComponent,
+    AddressListComponent,
+    AddressItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+<div class="toast fade show">
+  <div class="toast-header">
+    <strong class="mr-auto">&nbsp;</strong>
+    <small><b>{{translate.getString('postal-code')}}: </b>{{item.postalCode}}</small>
+  </div>
+  <div class="toast-body">
+    <p>
+      <b>{{translate.getString('full-street-name')}}: </b>
+      <span>{{item.fullStreetName}}&nbsp;</span>
+      <b>{{translate.getString('number')}}: </b>
+      <span>{{item.number}}</span>
+    </p>
+    <p>
+      <b>{{translate.getString('district')}}: </b>
+      <span>{{item.district}},&nbsp;</span>
+      <b>{{translate.getString('city')}}: </b>
+      <span>{{item.city}}</span>
+    </p>
+    <p>
+      <b>{{translate.getString('complement')}}: </b>
+      <span>{{item.complement}},&nbsp;</span>
+    </p>
+  </div>
+  <div class="toast-footer">
+    <div class="row justify-content-end">
+      <div class="float-right" style="margin-right: 3px;">
+        <button type="button" class="btn btn-box-tool" (click)="change(item.id)"><i class="far fa-edit"></i></button>
+        <button type="button" class="btn btn-box-tool" (click)="remove(item.id)"><i class="far fa-trash-alt"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

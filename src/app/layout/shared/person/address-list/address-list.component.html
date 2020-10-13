@@ -1,0 +1,97 @@
+<form role="form" [formGroup]="formGroupRules">
+  <input id="id" name="id" type="hidden">
+  <div class="row">
+    <div class="col-sm-2">
+      <app-input
+            [caption]="translate.getString('postal-code')"
+            [name]="'postalCode'"
+            [required]="false">
+
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('postal-code-message')}}"
+            formControlName="postalCode" autocomplete="off"
+            (blur)="loadCep(formGroupRules.value.postalCode)">
+      </app-input>
+    </div>
+    <div class="col-sm-4">
+      <app-input
+            [caption]="translate.getString('city')"
+            [name]="'city'"
+            [required]="false">
+
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('city-message')}}"
+            formControlName="city" autocomplete="off" disabled>
+      </app-input>
+    </div>
+    <div class="col-sm-5">
+      <app-input
+            [caption]="translate.getString('full-street-name')"
+            [name]="'fullStreetName'"
+            [required]="false">
+
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('full-street-name-message')}}"
+            formControlName="fullStreetName" autocomplete="off" disabled>
+      </app-input>
+    </div>
+    <div class="col-sm-1">
+      <app-input
+            [caption]="translate.getString('number')"
+            [name]="'number'"
+            [required]="false">
+
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('number-message')}}"
+            formControlName="number" autocomplete="off">
+      </app-input>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <app-input
+            [caption]="translate.getString('district')"
+            [name]="'district'"
+            [required]="false">
+
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('district-message')}}"
+            formControlName="district" autocomplete="off" disabled>
+      </app-input>
+    </div>
+    <div class="col-sm-3">
+      <app-input
+            [caption]="translate.getString('complement')"
+            [name]="'complement'"
+            [required]="false">
+
+            <input type="text" class="form-control"
+            placeholder="{{translate.getString('complement-message')}}"
+            formControlName="complement" autocomplete="off">
+      </app-input>
+    </div>
+    <div class="col-sm-1">
+      <button type="button"
+        class="btn btn-block bg-gradient-info btn-lg"
+        style="width: 68px; height: 68px;"
+        (click)="addItem($event)"
+        [disabled]="!isValid()">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div>
+</form>
+<div [style]="'height: ' + (height - 451) + 'px; overflow-y: scroll; overflow-x: hidden;'">
+  <div class="row">
+    <div class="col-md-4"
+      *ngFor="let item of service.getList(service.entity.addresses, 0)">
+        <app-address-item
+              [item]="item"
+              [service]="service"
+              [translate]="translate"
+              [formGroup]="formGroupRules">
+
+        </app-address-item>
+    </div>
+  </div>
+</div>
