@@ -96,8 +96,8 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
   getGenders(): any[] {
     const result = [];
 
-    result.push({id: 1, text: "Female"});
-    result.push({id: 2, text: "Male"});
+    result.push({id: 1, text: this.translate.getString('female')});
+    result.push({id: 2, text: this.translate.getString('male')});
 
     return result;
   }
@@ -105,9 +105,9 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
   getMaritalStatus(): any[] {
     const result = [];
 
-    result.push({id: 1, text: "Married"});
-    result.push({id: 2, text: "Single"});
-    result.push({id: 3, text: "Widower"});
+    result.push({id: 1, text: this.translate.getString('married')});
+    result.push({id: 2, text: this.translate.getString('single')});
+    result.push({id: 3, text: this.translate.getString('Widower')});
 
     return result;
   }

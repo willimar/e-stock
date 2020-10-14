@@ -5,6 +5,7 @@ import { FormBaseComponent } from '../../../components/controls/form-base.compon
 import { Translate } from '../../../locales/translate';
 import { PersonComponentHtml } from '../../../locales/translations/person.component.html';
 import { FormBuilder } from '@angular/forms';
+import { StatusService } from '../../../services/enums/status-service.enum';
 
 @Component({
   selector: 'app-person',

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { Translate } from '../../../locales/translate';
+import { StatusService } from '../../../services/enums/status-service.enum';
+import { IService } from '../../../services/interfaces/iservice-interface';
 import { ButtonPannelTranslate } from './button-pannel.translate';
-import { StatusPannel } from './status-pannel.enum';
 
 @Component({
   selector: 'app-button-pannel',
@@ -12,18 +13,21 @@ import { StatusPannel } from './status-pannel.enum';
 export class ButtonPannelComponent implements OnInit {
 
   translate: Translate = new Translate(new ButtonPannelTranslate());
-  status: StatusPannel = StatusPannel.browse;
+  status: StatusService = StatusService.browse;
+
+  @Input() service: IService;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  changeStatus(value: StatusPannel) {
+  changeStatus(value: StatusService) {
     this.status = value;
+    this.service.setStatus(value);
   }
 
-  getStatus(): StatusPannel {
+  getStatus(): StatusService {
     return this.status;
   }
 

@@ -33,5 +33,15 @@ export class PersonInfoComponentHtml implements ITranslate {
     [`marital-status-message-${Locale.ptBR}`]: "Selecione o estado civil...",
     [`special-needs-${Locale.enUs}`]: "Special needs",
     [`special-needs-${Locale.ptBR}`]: "Portador de necessidades especiais",
+    [`married-${Locale.enUs}`]: "Married",
+    [`married-${Locale.ptBR}`]: "Casado",
+    [`single-${Locale.enUs}`]: "Single",
+    [`single-${Locale.ptBR}`]: "Solteiro",
+    [`widower-${Locale.enUs}`]: "Widower",
+    [`Widower-${Locale.ptBR}`]: "Viúvo",
+    [`female-${Locale.enUs}`]: "Female",
+    [`female-${Locale.ptBR}`]: "Feminino",
+    [`male-${Locale.enUs}`]: "Male",
+    [`male-${Locale.ptBR}`]: "Masculino",
   };
 }

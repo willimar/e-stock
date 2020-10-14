@@ -94,4 +94,8 @@ export class FormBaseComponent<TEntity> {
 
     return result;
   }
+
+  formVisible(): boolean {
+    return this.service.status === StatusService.edit || this.service.status === StatusService.insert;
+  }
 }

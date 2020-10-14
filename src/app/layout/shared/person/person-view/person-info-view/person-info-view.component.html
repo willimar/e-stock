@@ -1,0 +1,49 @@
+<div class="toast fade show" style="width: 100%; max-width: 100%;">
+  <div class="toast-header">
+    <strong class="mr-auto">&nbsp;</strong>
+    <small>{{translate.getString('person-info-title')}}</small>
+  </div>
+  <div class="toast-body">
+    <div class="row">
+      <div class="col-sm-4">
+        <p>
+          <b>{{translate.getString('full-name')}}: </b>
+          {{service.entity.personInfo.name}}
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <p>
+          <b>{{translate.getString('birth-day')}}: </b>
+          {{service.entity.personInfo.fullName}}
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <p>
+          <b>{{translate.getString('nick-name')}}: </b>
+          {{service.entity.personInfo.nickName}}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">
+        <p>
+          <b>{{translate.getString('birth-birthCity')}}: </b>
+          service.entity.personInfo.birthCity,
+          {{service.entity.personInfo.birthState}}
+        </p>
+      </div>
+      <div class="col-sm-2">
+        <p>
+          <b>{{translate.getString('gender')}}: </b>
+          {{translate.getString('gender-' + service.entity.personInfo.gender)}}
+        </p>
+      </div>
+      <div class="col-sm-2">
+        <p>
+          <b>{{translate.getString('marital-status')}}: </b>
+          {{translate.getString('marital-status-' + service.entity.personInfo.maritalStatus)}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

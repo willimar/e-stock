@@ -43,6 +43,8 @@ import { AddressListComponent } from './layout/shared/person/address-list/addres
 import { AddressItemComponent } from './layout/shared/person/address-list/address-item/address-item.component';
 import { DocumentListComponent } from './layout/shared/person/document-list/document-list.component';
 import { DocumentItemComponent } from './layout/shared/person/document-list/document-item/document-item.component';
+import { PersonViewComponent } from './layout/shared/person/person-view/person-view.component';
+import { PersonInfoViewComponent } from './layout/shared/person/person-view/person-info-view/person-info-view.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { DocumentItemComponent } from './layout/shared/person/document-list/docu
     AddressListComponent,
     AddressItemComponent,
     DocumentListComponent,
-    DocumentItemComponent
+    DocumentItemComponent,
+    PersonViewComponent,
+    PersonInfoViewComponent
   ],
   imports: [
     BrowserModule,

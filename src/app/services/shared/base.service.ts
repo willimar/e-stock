@@ -7,13 +7,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HandleCode } from '../enums/handle-code.enum';
 import { FormGroup } from '@angular/forms';
 import { StatusService } from '../enums/status-service.enum';
+import { IService } from '../interfaces/iservice-interface';
 
 declare var $: any;
 
 @Injectable({
   providedIn: 'root'
 })
-export class BaseService<TEntity> {
+export class BaseService<TEntity> implements IService {
 
   public errorMessages: any[] = [];
   public messages: any[] = [];
@@ -82,11 +83,11 @@ export class BaseService<TEntity> {
     this.status = StatusService.reading;
   }
 
-  openError() {
+  public openError(): void {
     $('#modal-error').modal('show');
   }
 
-  openInfo() {
+  public openInfo(): void {
     $('#modal-info').modal('show');
   }
 
@@ -160,5 +161,9 @@ export class BaseService<TEntity> {
       .subscribe(
         (data: any[]) => this.responseResolve(data),
         (error: any) => this.exceptionResolve(error));
+  }
+
+  public setStatus(value: StatusService): void {
+    this.status = value;
   }
 }
