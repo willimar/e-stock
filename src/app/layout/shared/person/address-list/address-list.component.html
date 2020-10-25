@@ -81,7 +81,7 @@
     </div>
   </div>
 </form>
-<div [style]="'height: ' + (height - 451) + 'px; overflow-y: scroll; overflow-x: hidden;'">
+<div [style]="'height: ' + (getHeight() - 451) + 'px; overflow-y: scroll; overflow-x: hidden;'">
   <div class="row">
     <div class="col-md-4"
       *ngFor="let item of service.getList(service.entity.addresses, 0)">

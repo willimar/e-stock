@@ -21,7 +21,10 @@ export class FormBaseComponent<TEntity> {
   public static postalCodeFormat = /^([0-9]{5}-[0-9]{3})|([0-9]{5})|([0-9]{4}-[0-9]{4})|([a-zA-Z]{1}[0-9]{1}[a-zA-Z]{1} [0-9]{1}[a-zA-Z]{1}[0-9]{1})/;
 
   @Input() service: BaseService<TEntity> = null;
-  @Input() height: number = window.innerHeight;
+
+  getHeight(): number {
+    return window.innerHeight;
+  }
 
   public formGroupRules: FormGroup;
   public formBuilder: FormBuilder;
@@ -96,6 +99,6 @@ export class FormBaseComponent<TEntity> {
   }
 
   formVisible(): boolean {
-    return this.service.status === StatusService.edit || this.service.status === StatusService.insert;
+    return this.service.status === StatusService.edit || this.service.status === StatusService.insert || this.service.status === StatusService.error;
   }
 }

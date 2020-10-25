@@ -42,7 +42,7 @@ export class GridControlComponent implements OnInit {
     body.queryInfo.limit = this.step;
     body.queryInfo.page = page;
 
-    graphClient.resolve(`${SettingComponent.crudApiUrl}/graphql`);
+    graphClient.resolve(`${SettingComponent.estockApiUrl}/graphql`);
 
     graphClient.result.subscribe(content => {
       if (content.data[this.viewName] !== null && content.data[this.viewName].length > 0) {

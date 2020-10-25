@@ -28,15 +28,26 @@ export class BaseService<TEntity> implements IService {
 
   public exceptionResolve(e: any): void {
     if (e.error) {
-      e.error.forEach(element => {
+      if (typeof(e.error) === 'string') {
         const message = {
-          boxTitle: `Message type ${element.messageType}`,
-          boxText: `Code: ${element.code} with message: ${element.message}`,
+          boxTitle: `Message type ${e.name}`,
+          boxText: `Code: ${e.status} with message: ${e.message}`,
           isError: false
         };
 
         this.errorMessages.push(message);
-      });
+      } else {
+        e.error.forEach(element => {
+          const message = {
+            boxTitle: `Message type ${element.messageType}`,
+            boxText: `Code: ${element.code} with message: ${element.message}`,
+            isError: false
+          };
+
+          this.errorMessages.push(message);
+        });
+      }
+
     } else {
       const message = {
         boxTitle: `Message type ${e.name}`,
@@ -46,7 +57,6 @@ export class BaseService<TEntity> implements IService {
 
       this.errorMessages.push(message);
     }
-
 
     this.openError();
 
@@ -138,13 +148,12 @@ export class BaseService<TEntity> implements IService {
   }
 
   public submit(value: any): any {
-    const header = new Headers();
-    header.append('Content-Type', 'application/json');
 
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${SettingComponent.authToken}`
+      }),
     };
 
     return this.http.post(`${this.domain}/api/${this.controller}`,

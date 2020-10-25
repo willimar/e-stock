@@ -21,7 +21,8 @@ export class PersonService extends BaseService<Person> {
       this.entity.id = Guid.newGuid();
       this.entity.personInfo.id = Guid.newGuid();
       this.entity.userInfo.id = Guid.newGuid();
-      this.controller = 'Account/Append';
+      this.controller = 'Person/Save';
+      this.domain = SettingComponent.estockApiUrl;
   }
 
   addAddressItem(address: Address): void {
@@ -55,9 +56,9 @@ export class PersonService extends BaseService<Person> {
 
     body.appendArgument('id').appendCheck(OperationType.EqualTo, Statement.And, id.toString());
 
-    graphClient.resolve(`${SettingComponent.crudApiUrl}/graphql`);
+    graphClient.resolve(`${SettingComponent.estockApiUrl}/graphql`);
 
-    graphClient.result.subscribe(content => {
+    graphClient.result.subscribe((content: { data: { entity: any[]; }; }) => {
       const entityResult = content.data.entity[0];
       //this.formGroup.controls.name = entityResult.name;
     });
