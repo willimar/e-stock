@@ -22,4 +22,5 @@ export interface IService {
   submit(value: any): any;
   save(value: any): void;
   setStatus(value: StatusService): void;
+  addMessage(messageType: string, code: number, msg: string, isError: boolean): void;
 }

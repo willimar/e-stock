@@ -18,9 +18,9 @@ export class PersonService extends BaseService<Person> {
 
   constructor(protected http: HttpClient, public entity: Person) {
       super();
-      this.entity.id = Guid.newGuid();
-      this.entity.personInfo.id = Guid.newGuid();
-      this.entity.userInfo.id = Guid.newGuid();
+      this.entity.id = new Guid(Guid.empty);
+      this.entity.personInfo.id = new Guid(Guid.empty);
+      this.entity.userInfo.id = new Guid(Guid.empty);
       this.controller = 'Person/Save';
       this.domain = SettingComponent.estockApiUrl;
   }

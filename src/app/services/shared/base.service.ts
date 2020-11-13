@@ -63,6 +63,20 @@ export class BaseService<TEntity> implements IService {
     this.status = StatusService.error;
   }
 
+  public addMessage(messageType: string, code: number, msg: string, isError: boolean): void {
+    const message = {
+      boxTitle: `Message type ${messageType}`,
+      boxText: `Code: ${code} with message: ${msg}`,
+      isError: false
+    };
+
+    if (isError == true) {
+      this.errorMessages.push(message);
+    } else {
+      this.messages.push(message);
+    }
+  }
+
   protected responseResolve(value: any[]): void {
     const result: any[] = [];
 

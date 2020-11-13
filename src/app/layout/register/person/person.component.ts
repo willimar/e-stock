@@ -6,6 +6,7 @@ import { Translate } from '../../../locales/translate';
 import { PersonComponentHtml } from '../../../locales/translations/person.component.html';
 import { FormBuilder } from '@angular/forms';
 import { StatusService } from '../../../services/enums/status-service.enum';
+import { Guid } from '../../../models/shared/guid';
 
 @Component({
   selector: 'app-person',
@@ -22,6 +23,13 @@ export class PersonComponent extends FormBaseComponent<Person> implements OnInit
 
   ngOnInit(): void {
 
+  }
+
+  onInsert(value: any): void{
+    this.service.entity = new Person();
+    this.service.entity.id = Guid.newGuid();
+    this.service.entity.personInfo.id = Guid.newGuid();
+    this.service.entity.userInfo.id = Guid.newGuid();
   }
 
 }

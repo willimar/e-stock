@@ -30,12 +30,19 @@ export class ButtonPannelComponent implements OnInit {
   }
 
   onDeleteExecute(value: any): void {
-    this.onDelete.emit(value);
-    this.changeStatus(StatusService.browse);
+    if (this.service.entity.id.toString() === Guid.empty){
+      this.service.errorMessages = [];
+      this.service.addMessage("OnDeleteException", 401, "Select one record before delete.", true);
+      this.service.openError();
+    } else {
+      this.onDelete.emit(value);
+      this.changeStatus(StatusService.browse);
+    }
   }
 
   onCancelExecute(value: any): void {
     this.onCancel.emit(value);
+    this.service.entity.id = new Guid(Guid.empty);
     this.changeStatus(StatusService.browse);
   }
 
@@ -50,8 +57,14 @@ export class ButtonPannelComponent implements OnInit {
   }
 
   onEditExecute(value: any): void {
-    this.onEdit.emit(value);
-    this.changeStatus(StatusService.edit);
+    if (this.service.entity.id.toString() === Guid.empty){
+      this.service.errorMessages = [];
+      this.service.addMessage("OnEditException", 401, "Select one record before edit.", true);
+      this.service.openError();
+    } else {
+      this.onEdit.emit(value);
+      this.changeStatus(StatusService.edit);
+    }
   }
 
   onSaveExecute(value: any): void {
