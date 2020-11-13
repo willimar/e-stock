@@ -8,7 +8,7 @@ import { EMPTY } from 'rxjs';
 })
 export class SettingComponent implements OnInit {
 
-  public static estockApiUrl : string = "https://localhost:5005";
+  public static estockApiUrl : string = "https://e-stock-api.herokuapp.com";
   public static authApiUrl : string = 'https://authentic-api.herokuapp.com'; // 'http://crud-api.eastus.azurecontainer.io/api';
   public static cityApiUrl : string = 'https://cityapp-api.herokuapp.com/graphql';
   public static postalCodeApiUrl: string = 'https://postalcode-api.herokuapp.com';

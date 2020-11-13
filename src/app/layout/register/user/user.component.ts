@@ -21,6 +21,7 @@ export class UserComponent extends FormBaseComponent<Person> implements OnInit {
 
     this.formBuilder = formBuilder;
     this.service.domain = SettingComponent.authApiUrl;
+    this.service.controller = "Account/Append"
   }
 
   ngOnInit(): void {

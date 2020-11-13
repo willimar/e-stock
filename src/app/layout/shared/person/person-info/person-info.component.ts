@@ -60,7 +60,7 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
   }
 
   setBirthState(value: any): void {
-    this.service.entity.personInfo.birthState = value;
+    //this.service.entity.personInfo.birthState = value;
     this.cities = [];
     this.loadCities(value);
   }

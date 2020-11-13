@@ -11,6 +11,8 @@ export class PersonViewComponentComponentHtml implements ITranslate {
     [`full-name-${Locale.ptBR}`]: "Nome completo",
     [`birth-day-${Locale.enUs}`]: "Birth day",
     [`birth-day-${Locale.ptBR}`]: "Data de nascimento",
+    [`birth-day-format-${Locale.enUs}`]: "yyyy/MM/dd",
+    [`birth-day-format-${Locale.ptBR}`]: "dd/MM/yyyy",
     [`nick-name-${Locale.enUs}`]: "Nick name",
     [`nick-name-${Locale.ptBR}`]: "Apelido",
     [`birth-birthCity-${Locale.enUs}`]: "Birth city",

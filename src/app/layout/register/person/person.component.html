@@ -4,6 +4,12 @@
   </ul>
 </app-modal>
 
+<app-modal [modalName]="'modal-info'" [modalType]="'bg-info'" [modalTitle]="'Info.'">
+  <ul>
+    <li *ngFor="let item of getMessages()">{{item.boxText}}</li>
+  </ul>
+</app-modal>
+
 <app-modal [modalName]="'modal-search'" [modalSize]="'4'" [modalType]="''" [modalTitle]="'Search'">
 
 </app-modal>

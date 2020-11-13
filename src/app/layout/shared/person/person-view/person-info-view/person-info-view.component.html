@@ -14,7 +14,7 @@
       <div class="col-sm-4">
         <p>
           <b>{{translate.getString('birth-day')}}: </b>
-          {{service.entity.personInfo.fullName}}
+          {{ service.entity.personInfo.birthDay | date: translate.getString('birth-day-format') }}
         </p>
       </div>
       <div class="col-sm-4">
@@ -28,7 +28,7 @@
       <div class="col-sm-5">
         <p>
           <b>{{translate.getString('birth-birthCity')}}: </b>
-          service.entity.personInfo.birthCity,
+          {{getCity()}}
           {{service.entity.personInfo.birthState}}
         </p>
       </div>

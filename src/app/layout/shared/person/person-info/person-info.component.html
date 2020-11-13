@@ -8,7 +8,7 @@
             <input type="text" class="form-control"
             placeholder="{{translate.getString('full-name-message')}}"
             formControlName="name" autocomplete="off"
-            [value]="service.entity.personInfo.name" (change)="savePerson(formGroupRules.value)">
+            [(ngModel)]="service.entity.personInfo.name">
 
       </app-input>
     </div>
@@ -19,10 +19,8 @@
                   [required]="true">
                   <input type="date" class="form-control"
                     data-inputmask="'alias': 'mm/dd/yyyy'" formControlName="birthDay"
-                    data-mask="" [value]="service.entity.personInfo.birthDay"
-                    (change)="savePerson(formGroupRules.value)">
-
-
+                    data-mask=""
+                    [(ngModel)]="service.entity.personInfo.birthDay">
         </app-input-date>
     </div>
     <div class="col-sm-3">
@@ -33,8 +31,7 @@
                   <input type="text" class="form-control"
                     placeholder="{{translate.getString('nick-name-message')}}"
                     formControlName="nickName" autocomplete="off"
-                    [value]="service.entity.personInfo.nickName"
-                    (change)="savePerson(formGroupRules.value)">
+                    [(ngModel)]="service.entity.personInfo.nickName">
         </app-input>
     </div>
   </div>
@@ -49,8 +46,8 @@
                   [style]="'padding:3px 3px; border:0px;'"
                   [class]="'form-control'" [data]="getStates()"
                   [formControlName]="'birthState'" [placeholder]="translate.getString('birth-state-message')"
-                  [value]="service.entity.personInfo.birthState"
-                  (valueChanged)="setBirthState($event)"> </ng-select2>
+                  (valueChanged)="setBirthState($event)"
+                  [(ngModel)]="service.entity.personInfo.birthState"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-3">
@@ -62,8 +59,7 @@
                   [style]="'padding:3px 3px; border:0px;'" [class]="'form-control'"
                   [data]="getCities()" [formControlName]="'birthCity'"
                   [placeholder]="translate.getString('birth-city-message')"
-                  [value]="service.entity.personInfo.birthCity"
-                  (valueChanged)="setBirthCity($event)"> </ng-select2>
+                  [(ngModel)]="service.entity.personInfo.birthCity"> </ng-select2>
         </app-input>
     </div>
     <div class="col-sm-2">
@@ -76,8 +72,7 @@
                   [class]="'form-control'" [data]="getGenders()"
                   [formControlName]="'gender'"
                   [placeholder]="translate.getString('gender-message')"
-                  [value]="service.entity.personInfo.gender"
-                  (valueChanged)="savePerson(formGroupRules.value)"> </ng-select2>
+                  [(ngModel)]="service.entity.personInfo.gender"> </ng-select2>
 
         </app-input>
     </div>
@@ -91,8 +86,7 @@
                   [class]="'form-control'" [data]="getMaritalStatus()"
                   [formControlName]="'maritalStatus'"
                   [placeholder]="translate.getString('marital-status-message')"
-                  [value]="service.entity.personInfo.maritalStatus"
-                  (valueChanged)="savePerson(formGroupRules.value)"> </ng-select2>
+                  [(ngModel)]="service.entity.personInfo.maritalStatus"> </ng-select2>
         </app-input>
     </div>
 
@@ -105,8 +99,7 @@
               [required]="false">
               <input type="checkbox"
                 formControlName="specialNeeds"
-                [value]="service.entity.personInfo.specialNeeds"
-                (change)="savePerson(formGroupRules.value)">
+                [(ngModel)]="service.entity.personInfo.specialNeeds">
       </app-input-check>
   </div>
   </div>

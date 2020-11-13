@@ -80,7 +80,6 @@ export class BaseService<TEntity> implements IService {
       } else {
         message.isError = true;
         this.errorMessages.push(message);
-
       }
     });
 
@@ -152,7 +151,8 @@ export class BaseService<TEntity> implements IService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        'Authorization': `Bearer ${SettingComponent.authToken}`
+        'Authorization': `Bearer ${SettingComponent.authToken}`,
+        'SystemSource': `e-stock`
       }),
     };
 

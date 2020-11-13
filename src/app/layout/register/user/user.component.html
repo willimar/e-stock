@@ -4,6 +4,12 @@
   </ul>
 </app-modal>
 
+<app-modal [modalName]="'modal-info'" [modalType]="'bg-success'" [modalTitle]="'Create account.'">
+  <ul>
+    <li *ngFor="let item of getMessages()">{{item.boxText}}</li>
+  </ul>
+</app-modal>
+
 <section style="margin-left: 5px; margin-right: 10px; margin-top: 2px;  margin-bottom: 2px;">
   <form role="form" [formGroup]="formGroupRules">
     <app-box
