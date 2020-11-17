@@ -9,6 +9,7 @@ import { StatusService } from '../../../services/enums/status-service.enum';
 import { Guid } from '../../../models/shared/guid';
 import { IColumnDef } from '../../../components/interfaces/icolumn-def';
 import { SettingComponent } from '../../shared/setting/setting.component';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-person',
@@ -20,7 +21,7 @@ export class PersonComponent extends FormBaseComponent<Person> implements OnInit
   translate: Translate = new Translate(new PersonComponentHtml());
   viewUrl: string = `${SettingComponent.estockViewUrl}/graphql`
 
-  columnDef: IColumnDef[] = [
+  columnDef = [
     {
       headerName: 'Id',
       field: 'id',
@@ -67,7 +68,8 @@ export class PersonComponent extends FormBaseComponent<Person> implements OnInit
       checkboxSelection: false,
       editable: false,
       width: 200,
-      hide: false
+      hide: false,
+      valueFormatter: this.currencyFormatter,
      },
      {
       headerName: 'Changed',
@@ -75,7 +77,8 @@ export class PersonComponent extends FormBaseComponent<Person> implements OnInit
       checkboxSelection: false,
       editable: false,
       width: 200,
-      hide: false
+      hide: false,
+      valueFormatter: this.currencyFormatter
      },
      {
       headerName: 'Status',
@@ -86,6 +89,10 @@ export class PersonComponent extends FormBaseComponent<Person> implements OnInit
       hide: false
      }
    ];
+
+  currencyFormatter(params: any): string {
+    return formatDate(params.value, 'dd/MM/yyyy', 'en');
+  }
 
   constructor(formBuilder: FormBuilder, public service: PersonService) {
     super();

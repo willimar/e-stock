@@ -62,8 +62,7 @@ export class GridControlComponent implements OnInit {
   }
 
   exceptionResolve(error: any) {
-    console.log('dando erro');
-    console.log(error);
+
   }
 
   loadData() {

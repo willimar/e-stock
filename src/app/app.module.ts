@@ -45,6 +45,7 @@ import { DocumentListComponent } from './layout/shared/person/document-list/docu
 import { DocumentItemComponent } from './layout/shared/person/document-list/document-item/document-item.component';
 import { PersonViewComponent } from './layout/shared/person/person-view/person-view.component';
 import { PersonInfoViewComponent } from './layout/shared/person/person-view/person-info-view/person-info-view.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,7 @@ import { PersonInfoViewComponent } from './layout/shared/person/person-view/pers
     AgGridModule.withComponents([]),
     NgbModule
   ],
-  providers: [FormBuilder, Person, ModalComponent],
+  providers: [FormBuilder, Person, ModalComponent, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
