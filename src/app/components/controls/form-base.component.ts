@@ -22,6 +22,9 @@ export class FormBaseComponent<TEntity> {
 
   @Input() service: BaseService<TEntity> = null;
 
+  columns: IColumnDef[];
+  viewName: string;
+
   getHeight(): number {
     return window.innerHeight;
   }

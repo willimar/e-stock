@@ -22,18 +22,21 @@ export class GridControlComponent implements OnInit {
   @Input() step = 250;
   @Input() width: 100;
   @Input() height: number;
+  @Input() viewUrl: string;
 
   @Output() selectionChanged = new EventEmitter();
 
   formGroupRules: FormGroup;
+  graphClient: GraphClientService;
+  page: number = 1;
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder) {
-    this.height = window.innerHeight;
+    this.height = window.innerHeight - 90;
   }
 
   private clientPrepare(page: number): void {
-    const graphClient = new GraphClientService(this.http);
-    const body = graphClient.appendBody(this.viewName);
+    this.graphClient = new GraphClientService(this.http);
+    const body = this.graphClient.appendBody(this.viewName);
 
     this.columnDefs.forEach(item => {
       body.resultFields.push(item.field);
@@ -41,19 +44,34 @@ export class GridControlComponent implements OnInit {
 
     body.queryInfo.limit = this.step;
     body.queryInfo.page = page;
-
-    graphClient.resolve(`${SettingComponent.estockApiUrl}/graphql`);
-
-    graphClient.result.subscribe(content => {
-      if (content.data[this.viewName] !== null && content.data[this.viewName].length > 0) {
-        this.gridMount(content);
-        this.clientPrepare(page + 1);
-      }
-    });
+    body.queryInfo.validateTocken = SettingComponent.authToken;
+    body.queryInfo.systemName = SettingComponent.systemName;
+    this.loadData();
   }
 
   onSelectionChanged(value: any): void {
     this.selectionChanged.emit(value);
+  }
+
+  responseResolve(content: any) {
+    if (content.data[this.viewName] !== undefined && content.data[this.viewName].length > 0) {
+      this.gridMount(content);
+      this.page++;
+      this.clientPrepare(this.page);
+    }
+  }
+
+  exceptionResolve(error: any) {
+    console.log('dando erro');
+    console.log(error);
+  }
+
+  loadData() {
+    this.graphClient.resolve(this.viewUrl);
+
+    this.graphClient.result.subscribe(
+      (data: any[]) => this.responseResolve(data),
+      (error: any) => this.exceptionResolve(error));
   }
 
   private gridMount(data: any): void {

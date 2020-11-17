@@ -7,6 +7,8 @@ import { PersonComponentHtml } from '../../../locales/translations/person.compon
 import { FormBuilder } from '@angular/forms';
 import { StatusService } from '../../../services/enums/status-service.enum';
 import { Guid } from '../../../models/shared/guid';
+import { IColumnDef } from '../../../components/interfaces/icolumn-def';
+import { SettingComponent } from '../../shared/setting/setting.component';
 
 @Component({
   selector: 'app-person',
@@ -16,9 +18,78 @@ import { Guid } from '../../../models/shared/guid';
 export class PersonComponent extends FormBaseComponent<Person> implements OnInit {
 
   translate: Translate = new Translate(new PersonComponentHtml());
+  viewUrl: string = `${SettingComponent.estockViewUrl}/graphql`
+
+  columnDef: IColumnDef[] = [
+    {
+      headerName: 'Id',
+      field: 'id',
+      checkboxSelection: false,
+      editable: false,
+      width: 100,
+      hide: true
+     },
+     {
+      headerName: 'Name',
+      field: 'name',
+      checkboxSelection: false,
+      editable: false,
+      width: 200,
+      hide: false
+     },
+     {
+      headerName: 'Nick',
+      field: 'nickName',
+      checkboxSelection: false,
+      editable: false,
+      width: 100,
+      hide: false
+     },
+     {
+      headerName: 'Special needs',
+      field: 'specialNeeds',
+      checkboxSelection: true,
+      editable: false,
+      width: 120,
+      hide: false
+     },
+     {
+      headerName: 'Profession',
+      field: 'profession',
+      checkboxSelection: false,
+      editable: false,
+      width: 250,
+      hide: false
+     },
+     {
+      headerName: 'Register',
+      field: 'registerDate',
+      checkboxSelection: false,
+      editable: false,
+      width: 200,
+      hide: false
+     },
+     {
+      headerName: 'Changed',
+      field: 'lastChangeDate',
+      checkboxSelection: false,
+      editable: false,
+      width: 200,
+      hide: false
+     },
+     {
+      headerName: 'Status',
+      field: 'status',
+      checkboxSelection: false,
+      editable: false,
+      width: 100,
+      hide: false
+     }
+   ];
 
   constructor(formBuilder: FormBuilder, public service: PersonService) {
     super();
+    this.viewName = "person";
    }
 
   ngOnInit(): void {
@@ -30,6 +101,14 @@ export class PersonComponent extends FormBaseComponent<Person> implements OnInit
     this.service.entity.id = Guid.newGuid();
     this.service.entity.personInfo.id = Guid.newGuid();
     this.service.entity.userInfo.id = Guid.newGuid();
+  }
+
+  onSearch(value: any): void {
+
+  }
+
+  onSelectionChanged(value: any) {
+
   }
 
 }

@@ -23,6 +23,7 @@ export class ButtonPannelComponent implements OnInit {
   @Output() onInsert = new EventEmitter();
   @Output() onCancel = new EventEmitter();
   @Output() onDelete = new EventEmitter();
+  @Output() onSearch = new EventEmitter();
 
   constructor() { }
 
@@ -65,6 +66,11 @@ export class ButtonPannelComponent implements OnInit {
       this.onEdit.emit(value);
       this.changeStatus(StatusService.edit);
     }
+  }
+
+  onSearchExecute(value: any): void {
+    this.onSearch.emit(value);
+    this.changeStatus(StatusService.browse);
   }
 
   onSaveExecute(value: any): void {

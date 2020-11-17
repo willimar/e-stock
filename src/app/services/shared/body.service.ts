@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
 })
 export class BodyService {
 
-  public queryInfo: IQueryInfo = { limit: 0, page: 0 };
+  public queryInfo: IQueryInfo = { limit: 0, page: 0, systemName: '', validateTocken: '' };
   public arguments: ArgumentService[] = [];
   public resultFields: string[] = [];
 
@@ -23,12 +23,14 @@ export class BodyService {
     public constructor(public name: string) { }
 
     public toString(): string {
-        let body = '@entity(queryInfo:{limit: @limit, page: @page}@arguments){@fieldList}';
+        let body = '@entity(queryInfo:{limit: @limit, page: @page, validateTocken: \\"@validateTocken\\", systemName: \\"@systemName\\"}@arguments){@fieldList}';
         const args: string = this.getArguments();
 
         body = body.replace('@entity', this.getName(this.name));
         body = body.replace('@limit', this.queryInfo.limit.toString());
         body = body.replace('@page', this.queryInfo.page.toString());
+        body = body.replace('@validateTocken', this.queryInfo.validateTocken.toString());
+        body = body.replace('@systemName', this.queryInfo.systemName.toString());
         body = body.replace('@arguments', this.isNullOrWhiteSpace(args) ? '' : `,${args}`);
         body = body.replace('@fieldList', this.resultFields.join(','));
 

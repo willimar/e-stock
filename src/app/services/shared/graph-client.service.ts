@@ -22,13 +22,10 @@ export class GraphClientService {
     }
 
     private submitPerson(form: string, url: string): void {
-      const header = new Headers();
-      header.append('Content-Type', 'application/json');
-
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json'
-        })
+        }),
       };
 
       this.result = this.http.post(url,
