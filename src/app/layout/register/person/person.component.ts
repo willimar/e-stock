@@ -5,9 +5,7 @@ import { FormBaseComponent } from '../../../components/controls/form-base.compon
 import { Translate } from '../../../locales/translate';
 import { PersonComponentHtml } from '../../../locales/translations/person.component.html';
 import { FormBuilder } from '@angular/forms';
-import { StatusService } from '../../../services/enums/status-service.enum';
 import { Guid } from '../../../models/shared/guid';
-import { IColumnDef } from '../../../components/interfaces/icolumn-def';
 import { SettingComponent } from '../../shared/setting/setting.component';
 import {formatDate} from '@angular/common';
 
@@ -115,7 +113,8 @@ export class PersonComponent extends FormBaseComponent<Person> implements OnInit
   }
 
   onSelectionChanged(value: any) {
-
+    const id = value.api.getSelectedRows()[0].id;
+    this.service.loadentity(id);
   }
 
 }

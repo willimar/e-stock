@@ -142,7 +142,7 @@ export class MenuComponent implements OnInit {
   translate: Translate = new Translate(new MenuComponentHtml());
 
   constructor() {
-    console.log(this.rootMenu);
+
   }
 
   ngOnInit(): void {

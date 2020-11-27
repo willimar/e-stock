@@ -13,6 +13,7 @@ import { FormBaseComponent } from '../../../../components/controls/form-base.com
 import { Guid } from '../../../../models/shared/guid';
 import { Translate } from '../../../../locales/translate';
 import { PersonInfoComponentHtml } from '../../../../locales/translations/person-info.component.html';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-person-info',
@@ -60,7 +61,6 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
   }
 
   setBirthState(value: any): void {
-    //this.service.entity.personInfo.birthState = value;
     this.cities = [];
     this.loadCities(value);
   }
@@ -129,6 +129,11 @@ export class PersonInfoComponent extends FormBaseComponent<Person> implements On
   private loadCities(state: string): void {
     const client = new GraphClientService(this.http);
     const body = client.appendBody('city');
+
+    body.queryInfo.limit = 0;
+    body.queryInfo.page = 0;
+    body.queryInfo.systemName = SettingComponent.systemName;
+    body.queryInfo.validateTocken = SettingComponent.authToken;
 
     body.resultFields.push('id');
     body.resultFields.push('name');

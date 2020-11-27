@@ -44,6 +44,11 @@ export class PersonInfoViewComponent implements OnInit {
     const client = new GraphClientService(this.http);
     const body = client.appendBody('city');
 
+    body.queryInfo.limit = 1;
+    body.queryInfo.page = 1;
+    body.queryInfo.validateTocken = SettingComponent.authToken;
+    body.queryInfo.systemName = SettingComponent.systemName;
+
     body.resultFields.push('id');
     body.resultFields.push('name');
 
@@ -51,10 +56,15 @@ export class PersonInfoViewComponent implements OnInit {
 
     client.resolve(SettingComponent.cityApiUrl);
 
+    this.cityId = this.service.entity.personInfo.birthCity;
     client.result.subscribe(content => this.mapper(content));
   }
 
   private mapper(json: any): void {
+    if(json.data === undefined) {
+      return;
+    }
+
     const states: any[] = json.data.city;
 
     states.forEach(item => {
@@ -64,7 +74,6 @@ export class PersonInfoViewComponent implements OnInit {
       };
 
       this.cityName = `${city.text}, `;
-      this.cityId = this.service.entity.personInfo.birthCity;
     });
   }
 
