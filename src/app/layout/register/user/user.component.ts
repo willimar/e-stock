@@ -5,7 +5,7 @@ import { PersonService } from '../../../services/register/person.service';
 import { FormBaseComponent } from '../../../components/controls/form-base.component';
 import { SettingComponent } from '../../shared/setting/setting.component';
 import { Translate } from '../../../locales/translate';
-import { UserComponentHtml } from '../../../locales/translations/user.component.html';
+import { UserComponentHtml } from '../../../locales/translations/layout/register/user.component.html';
 
 @Component({
   selector: 'app-user',

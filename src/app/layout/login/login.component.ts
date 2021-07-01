@@ -7,7 +7,7 @@ import { FormBaseComponent } from '../../components/controls/form-base.component
 import { SettingComponent } from '../shared/setting/setting.component';
 import { ReturnCode } from '../../services/enums/return-code.enum';
 import { Translate } from '../../locales/translate';
-import { LoginComponentHtml } from '../../locales/translations/login.component.html';
+import { LoginComponentHtml } from '../../locales/translations/layout/login.component.html';
 
 declare var $: any;
 

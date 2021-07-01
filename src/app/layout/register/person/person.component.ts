@@ -3,7 +3,7 @@ import { Person } from '../../../models/registers/person';
 import { PersonService } from '../../../services/register/person.service';
 import { FormBaseComponent } from '../../../components/controls/form-base.component';
 import { Translate } from '../../../locales/translate';
-import { PersonComponentHtml } from '../../../locales/translations/person.component.html';
+import { PersonComponentHtml } from '../../../locales/translations/layout/register/person.component.html';
 import { FormBuilder } from '@angular/forms';
 import { Guid } from '../../../models/shared/guid';
 import { SettingComponent } from '../../shared/setting/setting.component';

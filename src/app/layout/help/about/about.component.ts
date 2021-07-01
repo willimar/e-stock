@@ -1,7 +1,7 @@
 import { AppComponent } from './../../../app.component';
 import { Component, OnInit } from '@angular/core';
 import { Translate } from '../../../locales/translate';
-import { AboutComponentHtml } from '../../../locales/translations/about.component.html';
+import { AboutComponentHtml } from '../../../locales/translations/layout/help/about/about.component.html';
 
 @Component({
   selector: 'app-about',

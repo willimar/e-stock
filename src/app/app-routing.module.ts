@@ -2,7 +2,6 @@ import { AuthGuard } from './services/shared/auth.guard';
 import { LoginComponent } from './layout/login/login.component';
 import { UserComponent } from './layout/register/user/user.component';
 import { AuthenticationComponent } from './layout/authentication/authentication.component';
-import { AboutComponent } from './layout/help/about/about.component';
 import { PersonComponent } from './layout/register/person/person.component';
 import { HomeComponent } from './layout/home/home.component';
 import { NgModule } from '@angular/core';
@@ -31,8 +30,8 @@ const routes: Routes =
       { path: '', component: AuthenticationComponent },
       { path: 'login', component: LoginComponent },
       { path: 'account', component: UserComponent },
-      { path: 'about', component: AboutComponent },
-      { path: 'forgot-password', component: ForgotPasswordComponent }
+      { path: 'about', loadChildren: () => import('./layout/help/about/about.module').then(m => m.AboutModule) },
+      { path: 'forgot-password', component: ForgotPasswordComponent,  }
     ]
   }
 ];
